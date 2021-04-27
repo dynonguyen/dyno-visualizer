@@ -14,7 +14,7 @@
 		/>
 		<link rel="stylesheet" href="styles/atomic.css" />
 		<link rel="stylesheet" href="styles/menu.css" />
-		<link rel="stylesheet" href="styles/style.css" />
+		<link rel="stylesheet" href="styles/home.css" />
 		<link rel="stylesheet" href="styles/reset.css" />
 	</head>
 	<body>
@@ -22,13 +22,15 @@
 		<nav class="d-flex justify-content-between container-fluid">
 			<ul class="menu d-flex">
 				<li class="menu-item active">
-					<i class="fas fa-home"></i>
+					<a href="index.html">
+						<i class="fas fa-home"></i>
+					</a>
 				</li>
 				<li class="menu-item">
 					Algorithms
 					<!-- Sub menu for algorithm -->
 					<ul class="sub-menu flex-col">
-						<li class="sub-menu-item">Sorts</li>
+						<a href="sort.html"><li class="sub-menu-item">Sorts</li></a>
 					</ul>
 				</li>
 				<li class="menu-item">Data Structures</li>
@@ -90,6 +92,6 @@
 		</section>
 		<!-- script -->
 		<script src="vendor/jquery.min.js"></script>
-		<script src="js/script.js"></script>
+		<script src="js/menu.js"></script>
 	</body>
 </html>

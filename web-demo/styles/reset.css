@@ -65,6 +65,16 @@ li {
 @media only screen and (max-width: 576px) {
 	html,
 	body {
-		font-size: 40%;
+		font-size: 50%;
 	}
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #fff;
+	text-decoration: none;
 }

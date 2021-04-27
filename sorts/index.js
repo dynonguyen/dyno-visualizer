@@ -1,19 +1,23 @@
-const bubbleSort = require('./bubble-sort');
+// const bubbleSort = require('./bubble-sort');
 
 // @fn: random a number array
 // type = 0: random, 1: ascending, 2: decending
 const generateRandomData = (length = 10, type = 0, max = 1000) => {
 	let arr = [];
+	for (let i = 0; i < length; ++i) arr.push(Math.round(Math.random() * max));
 	switch (type) {
 		case 1:
-			for (let i = 0; i < length; ++i) arr.push(i);
+			arr.sort((a, b) => a - b);
+			// swap 2 last postion => generate ~sorted list
+			if (length > 1)
+				[arr[length - 1], arr[length - 2]] = [arr[length - 2], arr[length - 1]];
 			break;
 		case 2:
-			for (let i = 0; i < length; ++i) arr.push(length - i);
+			arr.sort((a, b) => b - a);
+			if (length > 1)
+				[arr[length - 1], arr[length - 2]] = [arr[length - 2], arr[length - 1]];
 			break;
 		default:
-			for (let i = 0; i < length; ++i)
-				arr.push(Math.round(Math.random() * max));
 			break;
 	}
 	return arr;
@@ -46,13 +50,17 @@ const timeLogger = (title = 'timer', sortFn) => {
 };
 
 // @testing
-console.log('LENGTH: ', len);
-console.log('---------------------------------------');
+// console.log('LENGTH: ', len);
+// console.log('---------------------------------------');
 
 // 1) NODEJS SORT
-timeLogger('NODEJS SORT', function (arr) {
-	arr.sort((a, b) => a - b);
-});
+// timeLogger('NODEJS SORT', function (arr) {
+// 	arr.sort((a, b) => a - b);
+// });
 
 // 2) BUUBLE SORT
-timeLogger('BUBBLE SORT', bubbleSort);
+// timeLogger('BUBBLE SORT', bubbleSort);
+
+export default {
+	generateRandomData,
+};

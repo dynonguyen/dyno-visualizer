@@ -1,0 +1,46 @@
+#aboutMe h1 {
+	font-size: 7.2rem;
+	background: #373839;
+	background: linear-gradient(117deg, #373839 0%, #e87bc2 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+#aboutMe h3 {
+	text-align: center;
+	font-size: 2.4rem;
+	color: #373839;
+	font-weight: 900;
+	margin-top: 16px;
+}
+
+.contact-info li {
+	font-size: 2.8rem;
+	padding: 8px 12px;
+	cursor: pointer;
+	color: #555;
+	transition: all ease 0.4s;
+}
+.contact-info li:hover,
+.contact-info li:active {
+	transform: scale(1.2);
+}
+.contact-info li:hover.fb,
+.contact-info li:active.fb {
+	color: #014b96;
+}
+.contact-info li:hover.email,
+.contact-info li:active.email {
+	color: #e34133;
+}
+.contact-info li:hover.ins,
+.contact-info li:active.ins {
+	color: #eeac07;
+}
+.contact-info li:hover.in,
+.contact-info li:active.in {
+	color: #026eab;
+}
+.contact-info li:hover.git,
+.contact-info li:active.git {
+	color: #201e1f;
+}

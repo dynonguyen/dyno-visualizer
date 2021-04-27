@@ -1,6 +1,6 @@
 // ======= Navigation =======
 nav {
-  background-color: #373839;
+  background-color: #282a36;
   height: 4.8rem;
   box-shadow: 0 2px 5px 2px rgba(#111, 0.2);
 
@@ -33,7 +33,7 @@ nav {
     }
 
     &.active {
-      background-color: #e97f38;
+      background-color: #e87bc2;
     }
 
     i {
@@ -49,7 +49,7 @@ nav {
   left: 0;
   box-shadow: 0 2px 5px 2px rgba(#111, 0.2);
 
-  background-color: #373839;
+  background-color: #282a36;
 
   padding: 8px 0;
   display: none;
@@ -91,7 +91,7 @@ nav {
 
     #search {
       padding: 6px 12px;
-      background-color: #339af0;
+      background-color: #bd93f9;
       color: #fff;
     }
   }
