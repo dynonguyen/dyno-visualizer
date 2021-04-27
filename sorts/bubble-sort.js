@@ -17,6 +17,7 @@
 /* 
 	Độ phức tạp (BigO):
 	- Best Case (Mảng đã sắp xếp): O(n).
+	- Average: O (n^2)
 	- Worst Case (Mảng sắp xếp ngươc): O(n^2).
 	- Không gian biến phụ: O(1).
 	Note:

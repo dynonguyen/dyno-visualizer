@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="icons/favicon.png" />
+		<title>Algorithms & Data Structures</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+			integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="styles/atomic.css" />
+		<link rel="stylesheet" href="styles/menu.css" />
+		<link rel="stylesheet" href="styles/style.css" />
+		<link rel="stylesheet" href="styles/reset.css" />
+	</head>
+	<body>
+		<!-- header -->
+		<nav class="d-flex justify-content-between container-fluid">
+			<ul class="menu d-flex">
+				<li class="menu-item active">
+					<i class="fas fa-home"></i>
+				</li>
+				<li class="menu-item">
+					Algorithms
+					<!-- Sub menu for algorithm -->
+					<ul class="sub-menu flex-col">
+						<li class="sub-menu-item">Sorts</li>
+					</ul>
+				</li>
+				<li class="menu-item">Data Structures</li>
+				<li class="menu-item">Javascript</li>
+				<li class="menu-item">Tips</li>
+			</ul>
+
+			<!-- search -->
+			<div class="search-bar flex-center--ver">
+				<div class="search-bar-control" id="searchBar" style="display: none">
+					<input
+						autofocus
+						maxlength="40"
+						type="text"
+						placeholder="Enter the keyword ..."
+					/>
+					<button class="btn" id="search"><i class="fas fa-search"></i></button>
+				</div>
+
+				<div class="search-bar-icon flex-center--ver h-100" id="openSearchIcon">
+					<i class="fas fa-search"></i>
+				</div>
+
+				<!-- close search icon -->
+				<div
+					class="search-bar-icon flex-center--ver h-100"
+					style="display: none"
+					id="closeSearchIcon"
+				>
+					<i class="fas fa-times"></i>
+				</div>
+			</div>
+		</nav>
+
+		<!-- content -->
+		<section id="aboutMe" class="trans-center">
+			<h1>STUDY WITH ME</h1>
+			<h3>ABOUT ME</h3>
+			<ul class="contact-info flex-center">
+				<a href="https://fb.com/TuanNguyen250400" target="_blank">
+					<li class="fb"><i class="fab fa-facebook-square"></i></li
+				></a>
+				<a
+					href="https://mail.google.com/mail/u/0/#search/tuannguyentn2504%40gmail.com"
+					target="_blank"
+				>
+					<li class="email"><i class="fas fa-envelope"></i></li>
+				</a>
+				<a href="https://www.instagram.com/__tuan.ng_/" target="_blank">
+					<li class="ins"><i class="fab fa-instagram-square"></i></li
+				></a>
+				<a href="https://www.linkedin.com/in/nguyenleanhtuan/" target="_blank"
+					><li class="in"><i class="fab fa-linkedin"></i></li
+				></a>
+				<a href="https://github.com/TuanNguyen2504" target="_blank">
+					<li class="git"><i class="fab fa-github-square"></i></li
+				></a>
+			</ul>
+		</section>
+		<!-- script -->
+		<script src="vendor/jquery.min.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>

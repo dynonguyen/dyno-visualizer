@@ -1,0 +1,46 @@
+#aboutMe {
+  h1 {
+    font-size: 7.2rem;
+    background: rgb(55, 56, 57);
+    background: linear-gradient(117deg, rgba(55, 56, 57, 1) 0%, rgba(233, 127, 56, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #373839;
+    font-weight: 900;
+    margin-top: 16px;
+  }
+}
+
+.contact-info li {
+  font-size: 2.8rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #555;
+
+  transition: all ease 0.4s;
+  &:hover,
+  &:active {
+    transform: scale(1.2);
+
+    &.fb {
+      color: #014b96;
+    }
+    &.email {
+      color: #e34133;
+    }
+    &.ins {
+      color: #eeac07;
+    }
+    &.in {
+      color: #026eab;
+    }
+    &.git {
+      color: #201e1f;
+    }
+  }
+}
