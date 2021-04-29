@@ -13,13 +13,4 @@ $(document).ready(function () {
 		$('#searchBar').hide(100);
 		$('#openSearchIcon').show(100);
 	});
-
-	// menu-item
-	$('.menu-item').mouseenter(function () {
-		const subMenu = $(this).find('.sub-menu');
-		subMenu.fadeIn(250);
-		subMenu.mouseleave(function () {
-			$(this).fadeOut(250);
-		});
-	});
 });

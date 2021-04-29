@@ -1,5 +1,44 @@
 /// <reference path="D:\tips\typings\jquery\globals\jquery\index.d.ts" />
-import sortModule from '../../sorts/index.js';
+
+// @fn: helper
+function renderOptionSelect(optionList = []) {
+	let result = '';
+	optionList.forEach((option) => {
+		result += `<option value="${option.value}">${option.title}</option>`;
+	});
+	return result;
+}
+
+// render visualize array
+function renderArray(arr = []) {
+	let xml = '';
+	arr.forEach((item) => {
+		xml += `<li class="arr-item" style="height:${item}px"></li>`;
+	});
+	return xml;
+}
+
+// render physical array
+const generateRandomData = (length = 10, type = 0, max = 1000) => {
+	let arr = [];
+	for (let i = 0; i < length; ++i) arr.push(Math.round(Math.random() * max));
+	switch (type) {
+		case 1:
+			arr.sort((a, b) => a - b);
+			// swap 2 last postion => generate ~sorted list
+			if (length > 1)
+				[arr[length - 1], arr[length - 2]] = [arr[length - 2], arr[length - 1]];
+			break;
+		case 2:
+			arr.sort((a, b) => b - a);
+			if (length > 1)
+				[arr[length - 1], arr[length - 2]] = [arr[length - 2], arr[length - 1]];
+			break;
+		default:
+			break;
+	}
+	return arr;
+};
 
 // constant
 const MAX_SIZE = 2000,
@@ -40,30 +79,14 @@ let size = 1,
 	delay = 0,
 	typeAlg = 'random',
 	algorithm = OPTION_ALGORITHMS[0].value,
-	initArr = [];
-
-// @fn: helper
-function renderOptionSelect(optionList = []) {
-	let result = '';
-	optionList.forEach((option) => {
-		result += `<option value="${option.value}">${option.title}</option>`;
-	});
-	return result;
-}
-
-function renderArray(arr = []) {
-	let xml = '';
-	arr.forEach((item) => {
-		xml += `<li class="arr-item" style="height:${item}px"></li>`;
-	});
-	return xml;
-}
+	initArr = generateRandomData(1, 0, 100);
 
 // @render
 $(document).ready(() => {
 	// initial select
 	$('#algorithm').append(renderOptionSelect(OPTION_ALGORITHMS));
 	$('#type').append(renderOptionSelect(ARRAY_TYPES));
+	$('#graph').html(renderArray(initArr));
 
 	// check size input change
 	$('#size').change(function () {
@@ -76,8 +99,6 @@ $(document).ready(() => {
 			$(this).val(1);
 			size = 1;
 		} else size = val;
-
-		console.log(size);
 	});
 
 	// check delay input change
@@ -109,7 +130,7 @@ $(document).ready(() => {
 		const maxValue = $('#graph').height() - 50;
 
 		// generate array
-		initArr = sortModule.generateRandomData(size, type, maxValue);
+		initArr = generateRandomData(size, type, maxValue);
 
 		// render array
 

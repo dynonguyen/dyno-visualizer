@@ -1,0 +1,66 @@
+extends template/empty-content.pug
+block style 
+  link(rel='stylesheet' type="text/css" href='styles/css/sort.css')
+  link(rel='stylesheet' type="text/css" href='styles/css/menu.css')
+block content
+  .d-flex.flex-col.h-100
+    //- navigation
+    nav.d-flex.justify-content-between.container-fluid
+      ul.menu.d-flex
+        li.menu-item
+          a(href='/')
+            i.fas.fa-home
+        li.menu-item.active
+          | Algorithms
+          // Sub menu for algorithm
+          ul.sub-menu.flex-col
+            a(href='sort')
+              li.sub-menu-item Sorts
+        li.menu-item Data Structures
+        li.menu-item Javascript
+        li.menu-item Tips
+      // search
+      .search-bar.flex-center--ver
+        #searchBar.search-bar-control(style='display: none')
+          input(autofocus='' maxlength='40' type='text' placeholder='Enter the keyword ...')
+          button#search.btn
+            i.fas.fa-search
+        #openSearchIcon.search-bar-icon.flex-center--ver.h-100
+          i.fas.fa-search
+        // close search icon
+        #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
+          i.fas.fa-times
+    // control
+    section#sortControl.d-flex
+      .flex-center.sort-input.flex-grow-1
+        // size
+        .sort-input-item
+          label(for='size') Size
+          input#size(type='number' min='1' max='1000' value='1' name='size')
+        // delay time
+        .sort-input-item
+          label(for='delay') Delay (ms)
+          input#delay(type='number' min='0' max='1000' value='0' name='delay')
+        // array type
+        .sort-input-item
+          label(for='type') Array Type
+          select#type(name='type')
+        // sort algorithm
+        .sort-input-item
+          label(for='algorithm') Algorithm
+          select#algorithm(name='algorithm')
+      // generate button
+      .sort-btn.flex-center.flex-grow-1
+        button.btn.sort-btn-item
+          | Description Algorithm 
+          i.fas.fa-info-circle
+        button#generateBtn.btn.sort-btn-item
+          | Generate an Array
+        button.btn.sort-btn-item Get Old Unsorted Array
+        button.btn.sort-btn-item Sort
+    // visualize sort
+    section.visual-sort.flex-grow-1
+      ul#graph.w-100.h-100.d-flex.pos-rel
+block script
+  script(src='scripts/sort.js')
+  script(src='scripts/menu.js')

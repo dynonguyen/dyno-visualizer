@@ -30,6 +30,11 @@ nav {
     &:hover,
     &:active {
       background-color: #111;
+
+      & .sub-menu {
+        visibility: visible;
+        opacity: 1;
+      }
     }
 
     &.active {
@@ -49,10 +54,13 @@ nav {
   left: 0;
   box-shadow: 0 2px 5px 2px rgba(#111, 0.2);
 
-  background-color: #282a36;
+  transition: all 0.35s;
+  visibility: hidden;
+  opacity: 0;
 
+  background-color: #282a36;
   padding: 8px 0;
-  display: none;
+
   &-item {
     padding: 0.8rem 5.2rem;
     transition: all 0.3s;
