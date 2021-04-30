@@ -22,7 +22,7 @@ block content
           | Algorithms
           // Sub menu for algorithm
           ul.sub-menu.flex-col
-            a(href='sort')
+            a(href='/sort')
               li.sub-menu-item Sorts
         li.menu-item Data Structures
         li.menu-item Javascript
@@ -60,13 +60,13 @@ block content
           select#algorithm(name='algorithm')
       // generate button
       .flex-center.sort-btn.flex-grow-1
-        button.btn.sort-btn-item
+        button.sort-btn-item
           | Description Algorithm 
           i.fas.fa-info-circle
-        button#generateBtn.btn.sort-btn-item
+        button#generateBtn.sort-btn-item
           | Generate an Array
-        button.btn.sort-btn-item Get Old Unsorted Array
-        button.btn.sort-btn-item#sortBtn Sort
+        button#oldUnsortedBtn.sort-btn-item Get Old Unsorted Array
+        button.sort-btn-item#sortBtn Sort
       // show/hide control button for small device
       #hideControlBtn.pos-abs.cur-pointer.more
         i.fas.fa-chevron-circle-up
@@ -79,5 +79,7 @@ block content
   include ./mixin/slide-menu.pug
   +slideMenu
 block script
-  script(src='scripts/sort.js')
   script(src='scripts/menu.js')
+  script(src='scripts/sort/index.js')
+  script(src="scripts/sort/prepare-sort.js") 
+  script(src='scripts/sort/bubble-sort.js')

@@ -1,3 +1,7 @@
+nav {
+  z-index: 2 !important;
+}
+
 #sortControl {
   padding: 14px 16px;
   background-color: #383a59;
@@ -39,6 +43,7 @@
 
 .sort-btn {
   flex-wrap: wrap;
+
   &-item {
     margin: 2px 4px;
     background: transparent;
@@ -50,9 +55,15 @@
     font-size: 1.4rem;
 
     transition: all 0.35s;
+    cursor: pointer;
     &:hover,
     &:active {
       color: #fff;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.5;
     }
   }
 }

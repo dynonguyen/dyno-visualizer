@@ -1,3 +1,7 @@
+nav {
+  z-index: 2 !important;
+}
+
 #sortControl {
   padding: 14px 16px;
   background-color: #383a59;
@@ -46,9 +50,14 @@
   border-radius: 4px;
   font-size: 1.4rem;
   transition: all 0.35s;
+  cursor: pointer;
 }
 .sort-btn-item:hover, .sort-btn-item:active {
   color: #fff;
+}
+.sort-btn-item.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .visual-sort {
