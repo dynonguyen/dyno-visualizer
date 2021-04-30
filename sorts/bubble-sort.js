@@ -25,7 +25,24 @@
 	 - Chỉ nên sử dụng khi mảng đã sắp xếp như bảng Highscore...
 */
 
-function bubbleSort(arr = []) {
+function basicBubbleSort(arr = []) {
+	const n = arr.length;
+
+	// outer loop
+	for (let i = 0; i < n - 1; ++i) {
+		// inner loop
+		for (let j = 0; j < n - 1; ++j) {
+			if (arr[j] > arr[j + 1]) {
+				// swap (*)
+				[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+			}
+		}
+	}
+
+	return arr;
+}
+
+function enhancedBubbleSort(arr = []) {
 	const n = arr.length;
 
 	// outer loop
@@ -48,4 +65,7 @@ function bubbleSort(arr = []) {
 	return arr;
 }
 
-module.exports = bubbleSort;
+module.exports = {
+	enhancedBubbleSort,
+	basicBubbleSort,
+};

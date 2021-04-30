@@ -1,4 +1,4 @@
-// const bubbleSort = require('./bubble-sort');
+const bubbleSort = require('./bubble-sort');
 
 // @fn: random a number array
 // type = 0: random, 1: ascending, 2: decending
@@ -24,7 +24,7 @@ const generateRandomData = (length = 10, type = 0, max = 1000) => {
 };
 
 // @initial data
-const len = 100000;
+const len = 10;
 const randomArr = generateRandomData(len, 0);
 const ascenArr = generateRandomData(len, 1);
 const descenArr = generateRandomData(len, 2);
@@ -50,17 +50,14 @@ const timeLogger = (title = 'timer', sortFn) => {
 };
 
 // @testing
-// console.log('LENGTH: ', len);
-// console.log('---------------------------------------');
+console.log('LENGTH: ', len);
+console.log('---------------------------------------');
 
-// 1) NODEJS SORT
+// // 1) NODEJS SORT
 // timeLogger('NODEJS SORT', function (arr) {
 // 	arr.sort((a, b) => a - b);
 // });
 
-// 2) BUUBLE SORT
-// timeLogger('BUBBLE SORT', bubbleSort);
-
-export default {
-	generateRandomData,
-};
+// // 2) BUUBLE SORT
+// timeLogger('BASIC BUBBLE SORT', bubbleSort.basicBubbleSort);
+// timeLogger('ENHANCED BUBBLE SORT', bubbleSort.enhancedBubbleSort);

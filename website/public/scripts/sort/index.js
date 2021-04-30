@@ -132,6 +132,19 @@ $(document).ready(() => {
 		}
 	});
 
+	// show/close modal
+	$('#descAlgBtn').click(() => {
+		$('#descTitle').text(basicBubbleSortDesc.title);
+		$('#descContent').html(basicBubbleSortDesc.htmlContent);
+		$('#modalOverlay').show();
+		$('#descAlgModal').fadeIn(350);
+	});
+
+	$('#closeModal').click(() => {
+		$('#modalOverlay').hide();
+		$('#descAlgModal').fadeOut(350);
+	});
+
 	// initial select
 	$('#algorithm').append(renderOptionSelect(OPTION_ALGORITHMS));
 	$('#type').append(renderOptionSelect(ARRAY_TYPES));

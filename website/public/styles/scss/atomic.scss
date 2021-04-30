@@ -203,7 +203,7 @@
 }
 
 //spacing 0-50 px
-@for $i from 0 to 51 {
+@for $i from 1 to 10 {
   .m {
     &-#{$i} {
       margin: #{$i}px !important;
@@ -292,24 +292,6 @@
   }
   &-justify {
     text-align: justify;
-  }
-}
-
-//font-size 10-100px (0.5->5rem)
-@for $i from 10 to 100 {
-  .font-size {
-    &-#{$i}px {
-      font-size: #{$i}px !important;
-    }
-  }
-}
-
-// .font-weight 100-900
-@for $i from 1 to 10 {
-  .fw {
-    &-#{$i * 100} {
-      font-weight: #{$i * 100} !important;
-    }
   }
 }
 

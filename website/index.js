@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // routes
 app.use('/', homeRoute);
-app.use('/sort', sortRoute);
+app.use('/algorithm/sort', sortRoute);
 
 // =============== LISTENING ================= //
 app.listen(PORT, () => {

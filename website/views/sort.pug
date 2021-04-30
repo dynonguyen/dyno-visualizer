@@ -1,7 +1,7 @@
 extends template/empty-content.pug
 block style 
-  link(rel='stylesheet' type="text/css" href='styles/css/sort.css')
-  link(rel='stylesheet' type="text/css" href='styles/css/menu.css')
+  link(rel='stylesheet' type="text/css" href='/styles/css/sort.css')
+  link(rel='stylesheet' type="text/css" href='/styles/css/menu.css')
 block content
   .d-flex.flex-col.h-100
     //- navigation
@@ -22,7 +22,7 @@ block content
           | Algorithms
           // Sub menu for algorithm
           ul.sub-menu.flex-col
-            a(href='/sort')
+            a(href='/algorithm/sort')
               li.sub-menu-item Sorts
         li.menu-item Data Structures
         li.menu-item Javascript
@@ -60,7 +60,7 @@ block content
           select#algorithm(name='algorithm')
       // generate button
       .flex-center.sort-btn.flex-grow-1
-        button.sort-btn-item
+        button#descAlgBtn.sort-btn-item
           | Description Algorithm 
           i.fas.fa-info-circle
         button#generateBtn.sort-btn-item
@@ -78,8 +78,19 @@ block content
   //- mixin slide menu
   include ./mixin/slide-menu.pug
   +slideMenu
+
+  // description algorithm modal
+  .overlay#modalOverlay
+  .desc-alg-modal-wrap.trans-center#descAlgModal
+    .desc-alg-modal
+      .close-icon.cur-pointer.t-right#closeModal
+        i.fas.fa-times
+      h1.title.t-center#descTitle
+      #descContent.desc-content
+
 block script
-  script(src='scripts/menu.js')
-  script(src='scripts/sort/index.js')
-  script(src="scripts/sort/prepare-sort.js") 
-  script(src='scripts/sort/bubble-sort.js')
+  script(src='/scripts/menu.js')
+  script(src='/scripts/sort/algorithm-desc.js') 
+  script(src='/scripts/sort/index.js')
+  script(src='/scripts/sort/prepare-sort.js') 
+  script(src='/scripts/sort/bubble-sort.js')
