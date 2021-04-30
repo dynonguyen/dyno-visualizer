@@ -6,6 +6,14 @@ block content
   .d-flex.flex-col.h-100
     //- navigation
     nav.d-flex.justify-content-between.container-fluid
+      // mobile navigation
+      .mobile-menu
+        div(class=current === 'home' ? 'active' : '').menu-item 
+          a(href='/')
+            i.fas.fa-home
+        .menu-item#slideMenuIcon
+          i.fas.fa-bars
+
       ul.menu.d-flex
         li.menu-item
           a(href='/')
@@ -30,8 +38,9 @@ block content
         // close search icon
         #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
           i.fas.fa-times
+
     // control
-    section#sortControl.d-flex
+    section#sortControl.d-flex.pos-rel
       .flex-center.sort-input.flex-grow-1
         // size
         .sort-input-item
@@ -50,17 +59,25 @@ block content
           label(for='algorithm') Algorithm
           select#algorithm(name='algorithm')
       // generate button
-      .sort-btn.flex-center.flex-grow-1
+      .flex-center.sort-btn.flex-grow-1
         button.btn.sort-btn-item
           | Description Algorithm 
           i.fas.fa-info-circle
         button#generateBtn.btn.sort-btn-item
           | Generate an Array
         button.btn.sort-btn-item Get Old Unsorted Array
-        button.btn.sort-btn-item Sort
+        button.btn.sort-btn-item#sortBtn Sort
+      // show/hide control button for small device
+      #hideControlBtn.pos-abs.cur-pointer.more
+        i.fas.fa-chevron-circle-up
+
     // visualize sort
     section.visual-sort.flex-grow-1
       ul#graph.w-100.h-100.d-flex.pos-rel
+
+  //- mixin slide menu
+  include ./mixin/slide-menu.pug
+  +slideMenu
 block script
   script(src='scripts/sort.js')
   script(src='scripts/menu.js')

@@ -20,11 +20,6 @@ body {
 	background-color: #fff;
 }
 
-#root,
-.App {
-	width: 100%;
-}
-
 ::-webkit-scrollbar {
 	width: 10px;
 }
@@ -65,7 +60,7 @@ li {
 @media only screen and (max-width: 576px) {
 	html,
 	body {
-		font-size: 50%;
+		/* font-size: 50%; */
 	}
 }
 

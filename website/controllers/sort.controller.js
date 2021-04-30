@@ -1,5 +1,10 @@
 exports.getSortPage = (req, res, next) => {
 	try {
-		res.render('sort');
-	} catch (error) {}
+		return res.render('sort', {
+			current: 'algorithm',
+			sub: 'sort',
+		});
+	} catch (error) {
+		console.error('GET SORT PAGE ERROR: ', error);
+	}
 };

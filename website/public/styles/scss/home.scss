@@ -1,10 +1,13 @@
 #aboutMe {
   h1 {
-    font-size: 7.2rem;
+    min-width: 80vw;
+    text-align: center;
+    font-size: 5.4rem;
     background: rgb(55, 56, 57);
     background: linear-gradient(117deg, rgba(55, 56, 57, 1) 0%, rgba(233, 127, 56, 1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: all 2.2s;
   }
 
   h3 {
@@ -42,5 +45,88 @@
     &.git {
       color: #201e1f;
     }
+  }
+}
+
+.logo-ani {
+  -webkit-animation: logoAni 2.6s ease-in-out forwards;
+  animation: logoAni 2.6s ease-in-out forwards;
+}
+
+@-webkit-keyframes logoAni {
+  0% {
+    transform: translateY(-10px);
+  }
+  10% {
+    transform: translateY(-5px);
+  }
+  20% {
+    transform: translateY(-15px);
+  }
+  30% {
+    transform: translateY(-3px);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-30px);
+  }
+  70% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-20px);
+  }
+  85% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoAni {
+  0% {
+    transform: translateY(-10px);
+  }
+  10% {
+    transform: translateY(-5px);
+  }
+  20% {
+    transform: translateY(-15px);
+  }
+  30% {
+    transform: translateY(-3px);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-30px);
+  }
+  70% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-20px);
+  }
+  85% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

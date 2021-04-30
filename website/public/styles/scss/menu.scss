@@ -34,6 +34,7 @@ nav {
       & .sub-menu {
         visibility: visible;
         opacity: 1;
+        height: 100%;
       }
     }
 
@@ -43,20 +44,20 @@ nav {
 
     i {
       font-size: 2rem;
-      padding: 12px;
     }
   }
 }
 
 .sub-menu {
   position: absolute;
-  top: 5.2rem;
+  top: 5rem;
   left: 0;
   box-shadow: 0 2px 5px 2px rgba(#111, 0.2);
 
-  transition: all 0.35s;
-  visibility: hidden;
+  transition: all 0.15s;
   opacity: 0;
+  visibility: hidden;
+  height: 0;
 
   background-color: #282a36;
   padding: 8px 0;
@@ -101,6 +102,210 @@ nav {
       padding: 6px 12px;
       background-color: #bd93f9;
       color: #fff;
+      border: none;
     }
+  }
+}
+
+// menu for mobile, device with screen < 892px
+.mobile-menu {
+  display: none;
+}
+
+#slideNav {
+  min-height: 100vh;
+  background-color: #282a36;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+
+  .icon {
+    font-size: 2.4rem;
+    color: #fff;
+    padding: 24px;
+    text-align: right;
+    border-bottom: solid 1px #4a4e4e;
+
+    &:hover,
+    &:active {
+      & i {
+        transition: all 1.2s;
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+@mixin menu-item {
+  font-weight: bold;
+  font-size: 1.6rem;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+
+  color: #fff;
+  padding: 16px 64px;
+
+  transition: all 0.35s;
+  cursor: pointer;
+}
+
+.slide-menu {
+  &-item {
+    @include menu-item;
+    border-bottom: solid 1px #4a4e4e;
+    &:hover,
+    &:active {
+      background-color: #111;
+    }
+
+    span {
+      position: relative;
+      padding-right: 8px;
+    }
+
+    &.active {
+      background-color: #e87bc2;
+    }
+  }
+}
+
+// overlay
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #888;
+  opacity: 0.3;
+  display: none;
+}
+
+// arrow slide menu
+@mixin arrow {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: solid 5px transparent;
+  border-right: solid 5px transparent;
+
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+}
+
+.arrow-down {
+  &::after {
+    @include arrow;
+    border-top: solid 5px #fff;
+  }
+}
+
+.arrow-up {
+  &::after {
+    @include arrow;
+    border-bottom: solid 5px #fff;
+  }
+}
+
+// sub slide menu
+.sub-slide-menu {
+  background-color: #343746;
+  display: none;
+  &-item {
+    @include menu-item;
+
+    &:hover,
+    &:active {
+      background-color: #222;
+    }
+
+    span {
+      display: inline-block;
+      transform: translateX(20px);
+    }
+
+    &.active {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// responsive
+@media only screen and (max-width: 892px) {
+  .mobile-menu {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .search-bar-icon {
+    padding: 0 2px;
+    margin-left: 4px;
+  }
+  .search-bar-control {
+    text-align: right;
+  }
+  .search-bar-control input {
+    width: 70%;
+  }
+
+  #slideNav {
+    width: 100%;
+  }
+}
+
+// animation
+.show-slide-menu {
+  -webkit-animation: showSlide 0.35s ease-in forwards;
+  animation: showSlide 0.35s ease-in forwards;
+}
+
+@-webkit-keyframes showSlide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes showSlide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.hide-slide-menu {
+  -webkit-animation: hideSlide 0.35s ease-out forwards;
+  animation: hideSlide 0.35s ease-out forwards;
+}
+
+@-webkit-keyframes hideSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes hideSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }

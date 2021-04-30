@@ -1,6 +1,7 @@
 /// <reference path="D:\tips\typings\jquery\globals\jquery\index.d.ts" />
 
 // @fn: helper
+// render option select
 function renderOptionSelect(optionList = []) {
 	let result = '';
 	optionList.forEach((option) => {
@@ -12,9 +13,16 @@ function renderOptionSelect(optionList = []) {
 // render visualize array
 function renderArray(arr = []) {
 	let xml = '';
-	arr.forEach((item) => {
-		xml += `<li class="arr-item" style="height:${item}px"></li>`;
-	});
+	if (arr.length <= 20) {
+		arr.forEach((item) => {
+			xml += `<li class="arr-item" style="height:${item}px">${item}</li>`;
+		});
+	} else {
+		arr.forEach((item) => {
+			xml += `<li class="arr-item" style="height:${item}px"></li>`;
+		});
+	}
+
 	return xml;
 }
 
@@ -39,6 +47,70 @@ const generateRandomData = (length = 10, type = 0, max = 1000) => {
 	}
 	return arr;
 };
+
+// generate array visualizer
+function generateVisualizer() {
+	const type = typeAlg === 'random' ? 0 : typeAlg === 'sorted' ? 1 : 2;
+
+	// max value of item in is max height graph
+	const maxValue = $('#graph').height() - 80;
+
+	// generate array
+	initArr = generateRandomData(size, type, maxValue);
+
+	// render array
+	$('#graph').html(renderArray(initArr));
+}
+
+// change background color pre, end swap ele
+async function preSwap(left, right) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			$('#graph').children()[left].style.backgroundColor = 'red';
+			$('#graph').children()[right].style.backgroundColor = 'blue';
+
+			resolve();
+		}, 100);
+	});
+}
+
+async function endSwap(left, right) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			$('#graph').children()[left].style.backgroundColor = '#393A59';
+			$('#graph').children()[right].style.backgroundColor = 'red';
+
+			resolve();
+		}, 100);
+	});
+}
+
+// swap 2 element i, j
+async function swapEle(i, j) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const arr = $('#graph').children();
+			arr[i].before(arr[j]);
+			resolve();
+		}, 100);
+	});
+}
+
+// @fn Sort fn
+async function bubbleSort(initArr = []) {
+	let arr = [...initArr];
+	let n = arr.length;
+	for (let i = 0; i < n - 1; ++i) {
+		for (let j = 0; j < n - 1; ++j) {
+			await preSwap(j, j + 1);
+			if (arr[j] > arr[j + 1]) {
+				[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+				await swapEle(j, j + 1);
+			}
+			await endSwap(j, j + 1);
+		}
+	}
+}
 
 // constant
 const MAX_SIZE = 2000,
@@ -83,6 +155,35 @@ let size = 1,
 
 // @render
 $(document).ready(() => {
+	// web display
+	$('#hideControlBtn').click(function () {
+		const thisEle = $(this);
+		if (thisEle.hasClass('more')) {
+			thisEle.removeClass('more').addClass('less');
+			thisEle
+				.children('.fas')
+				.removeClass('fa-chevron-circle-up')
+				.addClass('fa-chevron-circle-down');
+
+			$('.sort-input').hide(250);
+			$('.sort-btn').hide(250);
+			$('#hideControlBtn').css({
+				top: 2,
+			});
+		} else {
+			thisEle.removeClass('less').addClass('more');
+			thisEle
+				.children('.fas')
+				.removeClass('fa-chevron-circle-down')
+				.addClass('fa-chevron-circle-up');
+			$('.sort-input').show(250);
+			$('.sort-btn').show(250);
+			$('#hideControlBtn').css({
+				top: 18,
+			});
+		}
+	});
+
 	// initial select
 	$('#algorithm').append(renderOptionSelect(OPTION_ALGORITHMS));
 	$('#type').append(renderOptionSelect(ARRAY_TYPES));
@@ -99,6 +200,8 @@ $(document).ready(() => {
 			$(this).val(1);
 			size = 1;
 		} else size = val;
+
+		generateVisualizer();
 	});
 
 	// check delay input change
@@ -121,19 +224,15 @@ $(document).ready(() => {
 	// check type algorithm change
 	$('#type').change(function () {
 		typeAlg = $(this).val();
+		generateVisualizer();
 	});
 
 	// generate array
-	$('#generateBtn').click(() => {
-		const type = typeAlg === 'random' ? 0 : typeAlg === 'sorted' ? 1 : 2;
-		// max value of item in is max height graph
-		const maxValue = $('#graph').height() - 50;
+	$('#generateBtn').click(generateVisualizer);
 
-		// generate array
-		initArr = generateRandomData(size, type, maxValue);
-
-		// render array
-
-		$('#graph').html(renderArray(initArr));
+	// sort
+	$('#sortBtn').click(() => {
+		console.log('object');
+		bubbleSort(initArr);
 	});
 });

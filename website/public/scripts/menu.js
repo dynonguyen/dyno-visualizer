@@ -13,4 +13,33 @@ $(document).ready(function () {
 		$('#searchBar').hide(100);
 		$('#openSearchIcon').show(100);
 	});
+
+	//show slide menu
+	$('#slideMenuIcon').click(() => {
+		$('#overlay').css('display', 'block');
+		$('#slideNav').removeClass('hide-slide-menu').addClass('show-slide-menu');
+	});
+
+	// close slide menu
+	$('#closeSlideMenuIcon').click(() => {
+		$('#slideNav').removeClass('show-slide-menu').addClass('hide-slide-menu');
+		$('#overlay').css('display', 'none');
+	});
+
+	// show sub slide menu
+	$('.slide-menu-item').click(function () {
+		const subId = $(this).attr('data-toggle-id');
+		if (subId) {
+			const subMenu = $(`#${subId}`);
+			if (subMenu.hasClass('hide')) {
+				subMenu.removeClass('hide').addClass('show');
+				$(this).children('span').removeClass('arrow-down').addClass('arrow-up');
+				subMenu.show(250);
+			} else {
+				subMenu.removeClass('show').addClass('hide');
+				$(this).children('span').removeClass('arrow-up').addClass('arrow-down');
+				subMenu.hide(250);
+			}
+		}
+	});
 });

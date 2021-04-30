@@ -5,28 +5,38 @@ head
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='icon' href='assets/icons/favicon.png')
-  title #{title || "Algorithms With Dyno"}
-  link(rel='stylesheet' type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous')
-  link(rel='stylesheet' type="text/css" href='styles/css/atomic.css')
-  link(rel='stylesheet' type="text/css" href='styles/css/menu.css')
-  link(rel='stylesheet' type="text/css" href='styles/css/reset.css')
+  title #{title || 'Algorithms With Dyno'}
+  link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous')
+  link(rel='stylesheet' type='text/css' href='styles/css/atomic.css')
+  link(rel='stylesheet' type='text/css' href='styles/css/menu.css')
+  link(rel='stylesheet' type='text/css' href='styles/css/reset.css')
   block style
 body
+
   //- navigation
   nav.d-flex.justify-content-between.container-fluid
-    ul.menu.d-flex
-      li.menu-item
+    // mobile navigation
+    .mobile-menu
+      div(class=current === 'home' ? 'active' : '').menu-item 
         a(href='/')
           i.fas.fa-home
-      li.menu-item.active
+      .menu-item#slideMenuIcon
+        i.fas.fa-bars
+
+    ul.menu.d-flex
+      li(class=current === 'home' ? 'active' : '').menu-item
+        a(href='/')
+          i.fas.fa-home
+      li(class=current === 'algorithm' ? 'active' : '').menu-item
         | Algorithms
         // Sub menu for algorithm
         ul.sub-menu.flex-col
           a(href='sort')
             li.sub-menu-item Sorts
-      li.menu-item Data Structures
-      li.menu-item Javascript
-      li.menu-item Tips
+      li(class=current === '' ? 'data-structure' : '' ).menu-item Data Structures
+      li(class=current === '' ? 'js' : '' ).menu-item Javascript
+      li(class=current === '' ? 'tips' : '' ).menu-item Tips
+
     // search
     .search-bar.flex-center--ver
       #searchBar.search-bar-control(style='display: none')
@@ -38,9 +48,13 @@ body
       // close search icon
       #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
         i.fas.fa-times
-  
+
   //- content
   block content
+
+  //- mixin slide menu
+  include ../mixin/slide-menu.pug
+  +slideMenu
 
   //- script
   script(src='vendors/scripts/jquery.min.js')
