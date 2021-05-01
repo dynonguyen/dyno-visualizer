@@ -134,8 +134,19 @@ $(document).ready(() => {
 
 	// show/close modal
 	$('#descAlgBtn').click(() => {
-		$('#descTitle').text(basicBubbleSortDesc.title);
-		$('#descContent').html(basicBubbleSortDesc.htmlContent);
+		let descAlg;
+		switch (algorithm) {
+			case 'bubble':
+				descAlg = basicBubbleSortDesc;
+				break;
+			case 'enBubble':
+				descAlg = enhancedBubbleSortDesc;
+				break;
+			default:
+				break;
+		}
+		$('#descTitle').text(descAlg.title);
+		$('#descContent').html(descAlg.htmlContent);
 		$('#modalOverlay').show();
 		$('#descAlgModal').fadeIn(350);
 	});
@@ -190,6 +201,7 @@ $(document).ready(() => {
 	// check type algorithm change
 	$('#type').change(function () {
 		$('#sortBtn').removeClass('disabled');
+		isSorting = false;
 		typeAlg = $(this).val();
 		generateVisualizer();
 	});
@@ -217,11 +229,13 @@ $(document).ready(() => {
 		$(this).addClass('disabled');
 
 		isSorting = true;
+
 		switch (algorithm) {
 			case 'bubble':
 				basicBubbleSort(initArr);
 				break;
 			case 'enBubble':
+				enhancedBubbleSort(initArr);
 				break;
 			default:
 				break;

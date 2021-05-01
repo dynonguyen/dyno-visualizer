@@ -123,6 +123,9 @@ nav {
 }
 .desc-alg-modal .close-icon {
   font-size: 2.4rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
 }
 .desc-alg-modal .close-icon:hover i, .desc-alg-modal .close-icon:active i {
   transition: all 1.2s;

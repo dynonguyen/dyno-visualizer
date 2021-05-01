@@ -49,7 +49,7 @@ function enhancedBubbleSort(arr = []) {
 	for (let i = 0; i < n - 1; ++i) {
 		let swapped = false;
 
-		// inner loop
+		// inner loop (Mỗi lần loop trừ đi 1)
 		for (let j = 0; j < n - 1 - i; ++j) {
 			if (arr[j] > arr[j + 1]) {
 				// swap (*)
