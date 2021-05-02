@@ -100,6 +100,25 @@ nav {
   }
 }
 
+#sortNote {
+  padding: 8px;
+}
+
+.sort-note-item {
+  margin: 0 16px;
+  &__title {
+    font-size: 1.8rem;
+    color: #666;
+    letter-spacing: 1px;
+  }
+
+  &__color {
+    height: 20px;
+    width: 40px;
+    margin-left: 4px;
+  }
+}
+
 // description algorithm modal
 .overlay {
   position: absolute;

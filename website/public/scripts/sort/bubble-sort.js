@@ -29,6 +29,7 @@ async function enhancedBubbleSort(initArr = []) {
 			}
 			await endSwap(j, j + 1);
 		}
+		await bubble(n - 1 - i);
 		if (!isSwap) return;
 	}
 }

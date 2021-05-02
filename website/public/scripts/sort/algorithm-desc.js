@@ -1,5 +1,15 @@
 const basicBubbleSortDesc = {
 	title: '🎈 BASIC BUBBLE SORT 💭',
+	sortNotes: [
+		{
+			title: 'Current Item',
+			color: '#BD93F9',
+		},
+		{
+			title: 'Next Item',
+			color: '#48D06D',
+		},
+	],
 	htmlContent: `<h2 class="sub-title">
 	1) Độ phức tạp thuật toán (Algorithm Complexity BigO):
 </h2>
@@ -60,6 +70,20 @@ const basicBubbleSortDesc = {
 
 const enhancedBubbleSortDesc = {
 	title: '💭 ENHANCED BUBBLE SORT 🎈',
+	sortNotes: [
+		{
+			title: 'Current Item',
+			color: CURRENT_ITEM_COLOR,
+		},
+		{
+			title: 'Next Item',
+			color: SWAP_ITEM_COLOR,
+		},
+		{
+			title: 'Bubbled Item',
+			color: BUBBLE_ITEM_COLOR,
+		},
+	],
 	htmlContent: `<h2 class="sub-title">
 	1) Độ phức tạp thuật toán (Algorithm Complexity BigO):
 </h2>

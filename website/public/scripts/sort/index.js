@@ -48,6 +48,19 @@ const generateRandomData = (length = 10, type = 0, max = 1000) => {
 	return arr;
 };
 
+// render sort notes
+const renderSortNotes = (sortNotes = []) => {
+	let xml = '';
+	sortNotes.forEach(
+		(note) =>
+			(xml += `<li class="d-flex sort-note-item">
+			<span class="sort-note-item__title">${note.title}: </span>
+			<div class="sort-note-item__color" style="background-color:${note.color}"></div>
+	</li>`),
+	);
+	$('#sortNote').html(xml);
+};
+
 // generate array visualizer
 function generateVisualizer() {
 	const type = typeAlg === 'random' ? 0 : typeAlg === 'sorted' ? 1 : 2;
@@ -61,6 +74,18 @@ function generateVisualizer() {
 	// render array
 	$('#graph').empty();
 	$('#graph').html(renderArray(initArr));
+}
+
+// get description algorithm
+function getDescAlg(key = 'bubble') {
+	switch (key) {
+		case 'bubble':
+			return basicBubbleSortDesc;
+		case 'enBubble':
+			return enhancedBubbleSortDesc;
+		default:
+			return basicBubbleSortDesc;
+	}
 }
 
 // constant
@@ -99,7 +124,8 @@ let size = 1,
 	typeAlg = 'random',
 	algorithm = OPTION_ALGORITHMS[0].value,
 	initArr = generateRandomData(1, 0, 100),
-	isSorting = false;
+	isSorting = false,
+	descAlg = getDescAlg(algorithm);
 
 // @render
 $(document).ready(() => {
@@ -132,19 +158,10 @@ $(document).ready(() => {
 		}
 	});
 
+	renderSortNotes(basicBubbleSortDesc.sortNotes);
+
 	// show/close modal
 	$('#descAlgBtn').click(() => {
-		let descAlg;
-		switch (algorithm) {
-			case 'bubble':
-				descAlg = basicBubbleSortDesc;
-				break;
-			case 'enBubble':
-				descAlg = enhancedBubbleSortDesc;
-				break;
-			default:
-				break;
-		}
 		$('#descTitle').text(descAlg.title);
 		$('#descContent').html(descAlg.htmlContent);
 		$('#modalOverlay').show();
@@ -196,6 +213,8 @@ $(document).ready(() => {
 	// check algorithm change
 	$('#algorithm').change(function () {
 		algorithm = $(this).val();
+		descAlg = getDescAlg(algorithm);
+		renderSortNotes(descAlg.sortNotes);
 	});
 
 	// check type algorithm change
