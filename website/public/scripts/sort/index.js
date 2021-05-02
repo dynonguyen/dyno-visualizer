@@ -83,6 +83,8 @@ function getDescAlg(key = 'bubble') {
 			return basicBubbleSortDesc;
 		case 'enBubble':
 			return enhancedBubbleSortDesc;
+		case 'selection':
+			return selectionSortDesc;
 		default:
 			return basicBubbleSortDesc;
 	}
@@ -100,6 +102,10 @@ const OPTION_ALGORITHMS = [
 	{
 		title: 'Enhanced Bubble Sort',
 		value: 'enBubble',
+	},
+	{
+		title: 'Selection Sort',
+		value: 'selection',
 	},
 ];
 
@@ -212,6 +218,12 @@ $(document).ready(() => {
 
 	// check algorithm change
 	$('#algorithm').change(function () {
+		if (isSorting) {
+			isSorting = false;
+			$('#graph').html(renderArray(initArr));
+			// enable button sort
+			$('#sortBtn').removeClass('disabled');
+		}
 		algorithm = $(this).val();
 		descAlg = getDescAlg(algorithm);
 		renderSortNotes(descAlg.sortNotes);
@@ -238,9 +250,12 @@ $(document).ready(() => {
 
 	// get last unsorted array
 	$('#oldUnsortedBtn').click(function () {
-		$('#graph').html(renderArray(initArr));
-		// enable button sort
-		$('#sortBtn').removeClass('disabled');
+		if (isSorting) {
+			isSorting = false;
+			$('#graph').html(renderArray(initArr));
+			// enable button sort
+			$('#sortBtn').removeClass('disabled');
+		}
 	});
 
 	// ! sorting
@@ -251,10 +266,13 @@ $(document).ready(() => {
 
 		switch (algorithm) {
 			case 'bubble':
-				basicBubbleSort(initArr);
+				basicBubbleSort([...initArr]);
 				break;
 			case 'enBubble':
-				enhancedBubbleSort(initArr);
+				enhancedBubbleSort([...initArr]);
+				break;
+			case 'selection':
+				selectionSort([...initArr]);
 				break;
 			default:
 				break;

@@ -3,7 +3,7 @@ async function preSwap(left, right) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			$('#graph').children()[left].style.backgroundColor = CURRENT_ITEM_COLOR;
-			$('#graph').children()[right].style.backgroundColor = SWAP_ITEM_COLOR;
+			$('#graph').children()[right].style.backgroundColor = SECOND_ITEM_COLOR;
 
 			resolve();
 		}, delay);
@@ -11,11 +11,19 @@ async function preSwap(left, right) {
 }
 
 // swap 2 element i, j
+
 async function swapEle(i, j) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			const arr = $('#graph').children();
-			arr[i].before(arr[j]);
+			const node1 = $('#graph').children()[i],
+				node2 = $('#graph').children()[j];
+
+			const afterNode2 = node2.nextElementSibling;
+			const parent = node2.parentNode;
+
+			node1.replaceWith(node2);
+			parent.insertBefore(node1, afterNode2);
+
 			resolve();
 		}, delay);
 	});
@@ -34,10 +42,11 @@ async function endSwap(left, right) {
 }
 
 // bubble color for buuble sort
-async function bubble(index) {
+async function changeItemColor(index, color) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			$('#graph').children()[index].style.backgroundColor = BUBBLE_ITEM_COLOR;
+			let item = $('#graph').children()[index];
+			if (item) item.style.backgroundColor = color;
 			resolve();
 		}, delay);
 	});

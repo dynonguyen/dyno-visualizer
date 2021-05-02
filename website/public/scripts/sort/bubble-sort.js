@@ -1,5 +1,4 @@
-async function basicBubbleSort(initArr = []) {
-	let arr = [...initArr];
+async function basicBubbleSort(arr = []) {
 	let n = arr.length;
 	for (let i = 0; i < n - 1; ++i) {
 		for (let j = 0; j < n - 1; ++j) {
@@ -14,8 +13,7 @@ async function basicBubbleSort(initArr = []) {
 	}
 }
 
-async function enhancedBubbleSort(initArr = []) {
-	let arr = [...initArr];
+async function enhancedBubbleSort(arr = []) {
 	let n = arr.length;
 	for (let i = 0; i < n - 1; ++i) {
 		let isSwap = false;
@@ -29,7 +27,7 @@ async function enhancedBubbleSort(initArr = []) {
 			}
 			await endSwap(j, j + 1);
 		}
-		await bubble(n - 1 - i);
+		await changeItemColor(n - 1 - i, BUBBLE_ITEM_COLOR);
 		if (!isSwap) return;
 	}
 }
