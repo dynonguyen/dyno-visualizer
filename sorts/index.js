@@ -1,5 +1,6 @@
 const bubbleSort = require('./bubble-sort');
-const { selectionSort } = require('./selection-sort');
+const selectionSort = require('./selection-sort');
+const insertionSort = require('./insertion-sort');
 // @fn: random a number array
 // type = 0: random, 1: ascending, 2: decending
 const generateRandomData = (length = 10, type = 0, max = 1000) => {
@@ -24,7 +25,7 @@ const generateRandomData = (length = 10, type = 0, max = 1000) => {
 };
 
 // @initial data
-const len = 10000;
+const len = 100000;
 const randomArr = generateRandomData(len, 0);
 const ascenArr = generateRandomData(len, 1);
 const descenArr = generateRandomData(len, 2);
@@ -63,25 +64,11 @@ function testing() {
 	timeLogger('BASIC BUBBLE SORT', bubbleSort.basicBubbleSort);
 	timeLogger('ENHANCED BUBBLE SORT', bubbleSort.enhancedBubbleSort);
 
-	// 2) SELECTION SORT
+	// 3) SELECTION SORT
 	timeLogger('SELECTION SORT', selectionSort);
+
+	// 4) INSERTION SORT
+	timeLogger('INSERTION SORT', insertionSort);
 }
 
 // testing();
-let n = randomArr.length;
-const arr = [...randomArr];
-const arr1 = [...randomArr];
-
-console.time('swap with dest');
-for (let i = 0; i < n - 1; ++i) {
-	[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
-}
-console.timeEnd('swap with dest');
-
-console.time('default swap');
-for (let i = 0; i < n - 1; ++i) {
-	let t = arr1[i];
-	arr1[i] = arr1[i + 1];
-	arr1[i + 1] = t;
-}
-console.timeEnd('default swap');

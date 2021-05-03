@@ -11,7 +11,6 @@ async function preSwap(left, right) {
 }
 
 // swap 2 element i, j
-
 async function swapEle(i, j) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
@@ -28,6 +27,22 @@ async function swapEle(i, j) {
 		}, delay);
 	});
 }
+
+// way 2: swap 2 element
+// async function swapEle(i, j) {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			const node1 = $('.arr-item')[i],
+// 				node2 = $('.arr-item')[j];
+
+// 			const t = node1.clientHeight;
+// 			node1.style.height = `${node2.clientHeight}px`;
+// 			node2.style.height = `${t}px`;
+
+// 			resolve();
+// 		}, delay);
+// 	});
+// }
 
 // end swap
 async function endSwap(left, right) {
@@ -47,6 +62,18 @@ async function changeItemColor(index, color) {
 		setTimeout(() => {
 			let item = $('#graph').children()[index];
 			if (item) item.style.backgroundColor = color;
+			resolve();
+		}, delay);
+	});
+}
+
+// change value item i -> value item j
+async function changeValue(i, value, type = 0) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			let item = $('.arr-item')[i];
+			item.style.height = `${value}px`;
+			if (type) item.textContent = value;
 			resolve();
 		}, delay);
 	});

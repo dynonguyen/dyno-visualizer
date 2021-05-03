@@ -15,11 +15,11 @@ function renderArray(arr = []) {
 	let xml = '';
 	if (arr.length <= 20) {
 		arr.forEach((item, index) => {
-			xml += `<li class="arr-item" id="i-${index}" style="height:${item}px">${item}</li>`;
+			xml += `<li class="arr-item" style="height:${item}px">${item}</li>`;
 		});
 	} else {
 		arr.forEach((item, index) => {
-			xml += `<li class="arr-item" id="i-${index}" style="height:${item}px"></li>`;
+			xml += `<li class="arr-item" style="height:${item}px"></li>`;
 		});
 	}
 
@@ -85,6 +85,8 @@ function getDescAlg(key = 'bubble') {
 			return enhancedBubbleSortDesc;
 		case 'selection':
 			return selectionSortDesc;
+		case 'insertion':
+			return insertionSortDesc;
 		default:
 			return basicBubbleSortDesc;
 	}
@@ -106,6 +108,10 @@ const OPTION_ALGORITHMS = [
 	{
 		title: 'Selection Sort',
 		value: 'selection',
+	},
+	{
+		title: 'Insertion Sort',
+		value: 'insertion',
 	},
 ];
 
@@ -129,7 +135,7 @@ let size = 1,
 	delay = 0,
 	typeAlg = 'random',
 	algorithm = OPTION_ALGORITHMS[0].value,
-	initArr = generateRandomData(1, 0, 100),
+	initArr = generateRandomData(size, delay, 300),
 	isSorting = false,
 	descAlg = getDescAlg(algorithm);
 
@@ -273,6 +279,9 @@ $(document).ready(() => {
 				break;
 			case 'selection':
 				selectionSort([...initArr]);
+				break;
+			case 'insertion':
+				insertionSort([...initArr]);
 				break;
 			default:
 				break;

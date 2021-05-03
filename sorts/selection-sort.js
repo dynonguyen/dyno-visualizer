@@ -21,10 +21,13 @@
 	- Không gian biến phụ: O(1).
 	Note:
 	 - Không nên dùng cho mảng kích thước lớn.
+	 	- Chỉ nên sử dụng khi mảng gần như đã sắp xếp như bảng Highscore
+						list...
 */
 
 function selectionSort(arr = []) {
 	let n = arr.length;
+
 	for (let i = 0; i < n - 1; ++i) {
 		let min = arr[i];
 		let index = i;
@@ -42,6 +45,4 @@ function selectionSort(arr = []) {
 	}
 }
 
-module.exports = {
-	selectionSort,
-};
+module.exports = selectionSort;

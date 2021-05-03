@@ -27,7 +27,7 @@ async function enhancedBubbleSort(arr = []) {
 			}
 			await endSwap(j, j + 1);
 		}
-		await changeItemColor(n - 1 - i, BUBBLE_ITEM_COLOR);
+		await changeItemColor(n - 1 - i, DONE_ITEM_COLOR);
 		if (!isSwap) return;
 	}
 }
