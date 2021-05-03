@@ -72,7 +72,16 @@ block content
         i.fas.fa-chevron-circle-up
 
     // visualize sort
-    ul#sortNote.flex-center
+    ul#sortNote.flex-center.flex-wrap
+    ul#sortAnalysis.flex-center.flex-wrap
+      li.sort-analysis-item Status:
+        span#sortStatus
+      li.sort-analysis-item Comparisions:
+        span#numOfComparision 
+      li.sort-analysis-item Swap:
+        span#numOfSwap
+      li.sort-analysis-item Array Accesses:
+        span#numOfArrAccess 
     section.visual-sort.flex-grow-1
       ul#graph.w-100.h-100.d-flex.pos-rel
 

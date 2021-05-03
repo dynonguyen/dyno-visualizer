@@ -66,12 +66,13 @@ function generateVisualizer() {
 	const type = typeAlg === 'random' ? 0 : typeAlg === 'sorted' ? 1 : 2;
 
 	// max value of item in is max height graph
-	const maxValue = $('#graph').height() - 80;
+	const maxValue = $('#graph').height() - 100;
 
 	// generate array
 	initArr = generateRandomData(size, type, maxValue);
 
 	// render array
+	toggleSortAnalysis(false);
 	$('#graph').empty();
 	$('#graph').html(renderArray(initArr));
 }
@@ -90,6 +91,44 @@ function getDescAlg(key = 'bubble') {
 		default:
 			return basicBubbleSortDesc;
 	}
+}
+
+// render sort analysis
+function renderSortAnalysis(
+	status = 'Sorting ...',
+	comparision = 'Processing ...',
+	swap = 'Processing ...',
+	arrAccess = 'Processing ...',
+) {
+	$('#sortStatus').text(status);
+	$('#numOfComparision').text(comparision);
+	$('#numOfSwap').text(swap);
+	$('#numOfArrAccess').text(arrAccess);
+}
+
+// toggle sort analysis
+function toggleSortAnalysis(open = false) {
+	if (open) $('#sortAnalysis').css('display', 'flex');
+	else $('#sortAnalysis').css('display', 'none');
+}
+
+// animation end sort
+function changeOpacity(item) {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			item.style.opacity = 0.4;
+			resolve();
+		}, 20);
+	});
+}
+
+async function endSort() {
+	const arr = $('#graph').children();
+	let n = arr.length;
+	for (let i = 0; i < n; ++i) {
+		await changeOpacity(arr[i]);
+	}
+	$('#graph').children().css('opacity', 1);
 }
 
 // constant
@@ -227,6 +266,7 @@ $(document).ready(() => {
 		if (isSorting) {
 			isSorting = false;
 			$('#graph').html(renderArray(initArr));
+			toggleSortAnalysis(false);
 			// enable button sort
 			$('#sortBtn').removeClass('disabled');
 		}
@@ -258,6 +298,7 @@ $(document).ready(() => {
 	$('#oldUnsortedBtn').click(function () {
 		if (isSorting) {
 			isSorting = false;
+			toggleSortAnalysis(false);
 			$('#graph').html(renderArray(initArr));
 			// enable button sort
 			$('#sortBtn').removeClass('disabled');
@@ -265,26 +306,30 @@ $(document).ready(() => {
 	});
 
 	// ! sorting
-	$('#sortBtn').click(function () {
+	$('#sortBtn').click(async function () {
 		$(this).addClass('disabled');
-
+		renderSortAnalysis();
+		toggleSortAnalysis(true);
 		isSorting = true;
-
+		let resultAnalys = null;
 		switch (algorithm) {
 			case 'bubble':
-				basicBubbleSort([...initArr]);
+				resultAnalys = await basicBubbleSort([...initArr]);
 				break;
 			case 'enBubble':
-				enhancedBubbleSort([...initArr]);
+				resultAnalys = await enhancedBubbleSort([...initArr]);
 				break;
 			case 'selection':
-				selectionSort([...initArr]);
+				resultAnalys = await selectionSort([...initArr]);
 				break;
 			case 'insertion':
-				insertionSort([...initArr]);
+				resultAnalys = await insertionSort([...initArr]);
 				break;
 			default:
 				break;
 		}
+		const { nSwap, nCompare, nArrAccess } = resultAnalys;
+		endSort();
+		renderSortAnalysis('Done', nCompare, nSwap, nArrAccess);
 	});
 });

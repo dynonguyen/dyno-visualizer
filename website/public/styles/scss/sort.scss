@@ -119,6 +119,23 @@ nav {
   }
 }
 
+#sortAnalysis {
+  display: none;
+}
+
+.sort-analysis-item {
+  font-size: 1.8rem;
+  color: #666;
+  margin: 0 8px;
+
+  span {
+    font-weight: bold;
+    display: inline-block;
+    color: #333;
+    margin-left: 4px;
+  }
+}
+
 // description algorithm modal
 .overlay {
   position: absolute;

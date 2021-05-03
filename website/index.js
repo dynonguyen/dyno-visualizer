@@ -6,7 +6,7 @@ const homeRoute = require('./routes/home.route');
 const sortRoute = require('./routes/sort.route');
 
 // set port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3333;
 
 // set static file
 app.use(express.static(path.join(__dirname, 'public')));

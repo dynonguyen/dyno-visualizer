@@ -123,5 +123,13 @@
     transform: translateY(0);
   }
 }
+@media only screen and (max-width: 576px) {
+  #aboutMe h1 {
+    font-size: 3.6rem;
+  }
+  #aboutMe h3 {
+    font-size: 1.8rem;
+  }
+}
 
 /*# sourceMappingURL=home.css.map */
