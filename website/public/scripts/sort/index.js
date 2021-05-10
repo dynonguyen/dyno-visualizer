@@ -88,6 +88,8 @@ function getDescAlg(key = 'bubble') {
 			return selectionSortDesc;
 		case 'insertion':
 			return insertionSortDesc;
+		case 'quick':
+			return quickSortDesc;
 		default:
 			return basicBubbleSortDesc;
 	}
@@ -118,7 +120,7 @@ function changeOpacity(item) {
 		setTimeout(() => {
 			item.style.opacity = 0.4;
 			resolve();
-		}, 20);
+		}, 10);
 	});
 }
 
@@ -151,6 +153,10 @@ const OPTION_ALGORITHMS = [
 	{
 		title: 'Insertion Sort',
 		value: 'insertion',
+	},
+	{
+		title: 'Quick Sort',
+		value: 'quick',
 	},
 ];
 
@@ -325,9 +331,23 @@ $(document).ready(() => {
 			case 'insertion':
 				resultAnalys = await insertionSort([...initArr]);
 				break;
+			case 'quick':
+				resultAnalys = await quickSort(
+					[...initArr],
+					0,
+					initArr.length - 1,
+					0,
+					0,
+					0,
+				);
+				nQSCompare = 0;
+				nQSArrAccess = 0;
+				nQSSwap = 0;
+				break;
 			default:
 				break;
 		}
+
 		const { nSwap, nCompare, nArrAccess } = resultAnalys;
 		endSort();
 		renderSortAnalysis('Done', nCompare, nSwap, nArrAccess);

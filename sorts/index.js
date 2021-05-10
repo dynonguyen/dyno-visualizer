@@ -1,6 +1,7 @@
 const bubbleSort = require('./bubble-sort');
 const selectionSort = require('./selection-sort');
 const insertionSort = require('./insertion-sort');
+const quickSort = require('./quick-sort');
 // @fn: random a number array
 // type = 0: random, 1: ascending, 2: decending
 const generateRandomData = (length = 10, type = 0, max = 1000) => {
@@ -25,7 +26,7 @@ const generateRandomData = (length = 10, type = 0, max = 1000) => {
 };
 
 // @initial data
-const len = 100000;
+const len = 1000_000;
 const randomArr = generateRandomData(len, 0);
 const ascenArr = generateRandomData(len, 1);
 const descenArr = generateRandomData(len, 2);
@@ -60,15 +61,18 @@ function testing() {
 		arr.sort((a, b) => a - b);
 	});
 
-	// 2) BUUBLE SORT
-	timeLogger('BASIC BUBBLE SORT', bubbleSort.basicBubbleSort);
-	timeLogger('ENHANCED BUBBLE SORT', bubbleSort.enhancedBubbleSort);
+	// // 2) BUUBLE SORT
+	// timeLogger('BASIC BUBBLE SORT', bubbleSort.basicBubbleSort);
+	// timeLogger('ENHANCED BUBBLE SORT', bubbleSort.enhancedBubbleSort);
 
-	// 3) SELECTION SORT
-	timeLogger('SELECTION SORT', selectionSort);
+	// // 3) SELECTION SORT
+	// timeLogger('SELECTION SORT', selectionSort);
 
-	// 4) INSERTION SORT
-	timeLogger('INSERTION SORT', insertionSort);
+	// // 4) INSERTION SORT
+	// timeLogger('INSERTION SORT', insertionSort);
+
+	// 5) QUICK SORT
+	timeLogger('QUICK SORT', (arr) => quickSort(arr, 0, len - 1));
 }
 
-// testing();
+testing();
