@@ -368,3 +368,80 @@ const quickSortDesc = {
 	- <br>Ưu điểm:</br> Nếu pivot là phần tử gần trung bình cộng của các phần tử mảng thì thuật toán chạy rất nhanh. <br/>S
 </div>`,
 };
+
+const mergeSortDesc = {
+	title: 'MERGE SORT ALGORITHM',
+	sortNotes: [
+		{
+			title: 'Middle Item',
+			color: CURRENT_ITEM_COLOR,
+		},
+		{
+			title: 'Merge Index',
+			color: SECOND_ITEM_COLOR,
+		},
+	],
+	htmlContent: `<h2 class="sub-title">
+	1) Độ phức tạp thuật toán (Algorithm Complexity BigO):
+</h2>
+<br />
+<div class="sub-content">
+	<u>- Độ phức tạp thời gian (Time Complexity):</u>
+	<br />
+	<div class="p-l-8 m-tb-8">
+		Best case: <b>O( n log(n) )</b>
+		<br />
+		Average case: <b>O( n log(n) )</b>
+		<br />
+		Worst case: <b>O( n log(n) )</b>
+		<br />
+	</div>
+
+	<u>- Độ phức tạp bộ nhớ (Menory Complexity):</u>
+	<br />
+	<div class="p-l-8 m-tb-8">Worst case: <b>O(n)</b></div>
+</div>
+<h2 class="sub-title">2) Ý tưởng thuật toán (Algorithm Idea):</h2>
+<br />
+<div class="sub-content">
+	<u>- Đầu vào:</u>
+	<br />
+	<div class="p-l-8 m-tb-8">
+		- <b>arr</b>: mảng cần sắp xếp. <br />
+		- <b>n</b>: số lượng phần tử của mảng. <br />
+		- <b>l</b>: index phần tử bắt đầu duyệt. <br />
+		- <b>r</b>: index phần tử cuối cùng cần duyệt. <br />
+	</div>
+	<u>- Ý tưởng:</u>
+	<br />
+	<div class="p-l-8 m-tb-8">
+	- Tách mảng ban đầu thành 2 mảng dựa trên phần tử middle: (n - 1)/2.<br/>
+	- Cứ thế đệ quy, tách đến khi các mảng còn 1 phần tử. <br/>
+	- Gộp các mảng trên lại, vừa gộp vừa sắp xếp.<br/>
+	</div>
+</div>
+<h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
+<div class="sub-content m-t-8 m-b-8">
+	<h3 class="m-l-16">3.1 - Minh hoạ ý tưởng:<h3/>
+	<img
+		src="/assets/images/merge-sort-illustration.jpg"
+		alt="Merge sort illustration photo"
+		width="100%"
+		heigh="650px"
+	/>
+	<p class="t-center m-tb-12" style="font-size:16px">Nguồn: https://www.programiz.com/</p>
+	<h3 class="m-l-16 m-t-16 m-b-8">3.2 - Hàm merge sort:<h3/>
+	<img
+	src="/assets/images/merge-sort.jpg"
+	alt="Merge sort photo"
+	width="100%"
+/>
+</div>
+<h2 class="sub-title">4) Ghi chú (Note):</h2>
+<div class="sub-content">
+	- Nên dùng cho mảng kích thước lớn. <br />
+	- Thuật toán khá ổn định trong mọi trường hợp.<br/>
+	- <b>Nhược điểm:</b><br/>
+	  &nbsp;	+ Tốn khá nhiều không gian phụ để gộp mảng <br />
+</div>`,
+};

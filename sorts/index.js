@@ -2,6 +2,7 @@ const bubbleSort = require('./bubble-sort');
 const selectionSort = require('./selection-sort');
 const insertionSort = require('./insertion-sort');
 const quickSort = require('./quick-sort');
+const mergeSort = require('./merge-sort');
 // @fn: random a number array
 // type = 0: random, 1: ascending, 2: decending
 const generateRandomData = (length = 10, type = 0, max = 1000) => {
@@ -37,7 +38,6 @@ const timeLogger = (title = 'timer', sortFn) => {
 	console.time(`${title} --> RANDOM`);
 	sortFn(arr);
 	console.timeEnd(`${title} --> RANDOM`);
-
 	arr = [...ascenArr];
 	console.time(`${title} --> ASCENDING`);
 	sortFn(arr);
@@ -73,6 +73,9 @@ function testing() {
 
 	// 5) QUICK SORT
 	timeLogger('QUICK SORT', (arr) => quickSort(arr, 0, len - 1));
+
+	// 6) MERGE SORT
+	timeLogger('MERGE SORT', (arr) => mergeSort(arr, 0, arr.length - 1));
 }
 
 testing();

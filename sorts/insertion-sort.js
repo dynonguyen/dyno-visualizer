@@ -1,29 +1,3 @@
-function insertionSort(arr = []) {
-	let n = arr.length;
-
-	let i = 1,
-		j;
-
-	while (i < n) {
-		if (arr[i] >= arr[i - 1]) ++i;
-		else {
-			const current = arr[i];
-			j = i - 1;
-
-			// insert item into suitable position
-			while (j >= 0 && arr[j] > current) {
-				arr[j + 1] = arr[j];
-				--j;
-			}
-
-			arr[j + 1] = current;
-			++i;
-		}
-	}
-
-	return arr;
-}
-
 /* 
     Đầu vào:
   - arr: mảng cần sắp xếp.

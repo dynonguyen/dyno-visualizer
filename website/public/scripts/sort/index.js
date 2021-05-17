@@ -77,7 +77,7 @@ function generateVisualizer() {
 	$('#graph').html(renderArray(initArr));
 }
 
-// get description algorithm
+// get description algorithm (*)
 function getDescAlg(key = 'bubble') {
 	switch (key) {
 		case 'bubble':
@@ -90,6 +90,8 @@ function getDescAlg(key = 'bubble') {
 			return insertionSortDesc;
 		case 'quick':
 			return quickSortDesc;
+		case 'merge':
+			return mergeSortDesc;
 		default:
 			return basicBubbleSortDesc;
 	}
@@ -137,6 +139,7 @@ async function endSort() {
 const MAX_SIZE = 2000,
 	MAX_DELAY = 1000;
 
+// (*)
 const OPTION_ALGORITHMS = [
 	{
 		title: 'Basic Bubble Sort',
@@ -157,6 +160,10 @@ const OPTION_ALGORITHMS = [
 	{
 		title: 'Quick Sort',
 		value: 'quick',
+	},
+	{
+		title: 'Merge Sort',
+		value: 'merge',
 	},
 ];
 
@@ -311,7 +318,7 @@ $(document).ready(() => {
 		}
 	});
 
-	// ! sorting
+	// ! sorting (*)
 	$('#sortBtn').click(async function () {
 		$(this).addClass('disabled');
 		renderSortAnalysis();
@@ -332,17 +339,16 @@ $(document).ready(() => {
 				resultAnalys = await insertionSort([...initArr]);
 				break;
 			case 'quick':
-				resultAnalys = await quickSort(
-					[...initArr],
-					0,
-					initArr.length - 1,
-					0,
-					0,
-					0,
-				);
+				resultAnalys = await quickSort([...initArr], 0, initArr.length - 1);
 				nQSCompare = 0;
 				nQSArrAccess = 0;
 				nQSSwap = 0;
+				break;
+			case 'merge':
+				resultAnalys = await mergeSort([...initArr], 0, initArr.length - 1);
+				nMSCompare = 0;
+				nMSArrAccess = 0;
+				nMSSwap = 0;
 				break;
 			default:
 				break;
