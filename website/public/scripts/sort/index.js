@@ -92,6 +92,8 @@ function getDescAlg(key = 'bubble') {
 			return quickSortDesc;
 		case 'merge':
 			return mergeSortDesc;
+		case 'heap':
+			return heapSortDesc;
 		default:
 			return basicBubbleSortDesc;
 	}
@@ -164,6 +166,10 @@ const OPTION_ALGORITHMS = [
 	{
 		title: 'Merge Sort',
 		value: 'merge',
+	},
+	{
+		title: 'Heap Sort',
+		value: 'heap',
 	},
 ];
 
@@ -349,6 +355,12 @@ $(document).ready(() => {
 				nMSCompare = 0;
 				nMSArrAccess = 0;
 				nMSSwap = 0;
+				break;
+			case 'heap':
+				resultAnalys = await heapSort([...initArr]);
+				nHSCompare = 0;
+				nHSArrAccess = 0;
+				nHSSwap = 0;
 				break;
 			default:
 				break;

@@ -55,7 +55,7 @@ const basicBubbleSortDesc = {
 <h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
 <div class="sub-content m-t-8">
 	<img
-		src="/assets/images/basic-bubble-sort.jpg"
+		src="/assets/images/sort/basic-bubble-sort.jpg"
 		alt="Basic bubble sort photo"
 		width="100%"
 	/>
@@ -131,7 +131,7 @@ const enhancedBubbleSortDesc = {
 <h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
 <div class="sub-content m-t-8">
 	<img
-		src="/assets/images/enhanced-bubble-sort.jpg"
+		src="/assets/images/sort/enhanced-bubble-sort.jpg"
 		alt="Enhanced bubble sort photo"
 		width="100%"
 	/>
@@ -207,7 +207,7 @@ const selectionSortDesc = {
 <h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
 <div class="sub-content m-t-8">
 	<img
-		src="/assets/images/selection-sort.jpg"
+		src="/assets/images/sort/selection-sort.jpg"
 		alt="Selection sort photo"
 		width="100%"
 	/>
@@ -272,7 +272,7 @@ const insertionSortDesc = {
 <h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
 <div class="sub-content m-t-8">
 	<img
-		src="/assets/images/insertion-sort.jpg"
+		src="/assets/images/sort/insertion-sort.jpg"
 		alt="Insertion sort photo"
 		width="100%"
 	/>
@@ -345,15 +345,15 @@ const quickSortDesc = {
 </div>
 <h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
 <div class="sub-content m-t-8 m-b-8">
-	<h3 class="m-l-16">3.1 - Hàm tìm vách ngăn pivot (partition function):<h3/>
+	<h3 class="m-l-16">3.1 - Hàm tìm vách ngăn pivot (partition function):</h3>
 	<img
-		src="/assets/images/partition-quick-sort.jpg"
+		src="/assets/images/sort/partition-quick-sort.jpg"
 		alt="Partition Function photo"
 		width="100%"
 	/>
-	<h3 class="m-l-16 m-t-16 m-b-8">3.2 - Hàm quick sort:<h3/>
+	<h3 class="m-l-16 m-t-16 m-b-8">3.2 - Hàm quick sort:</h3>
 	<img
-	src="/assets/images/quick-sort.jpg"
+	src="/assets/images/sort/quick-sort.jpg"
 	alt="Quick sort photo"
 	width="100%"
 />
@@ -422,17 +422,17 @@ const mergeSortDesc = {
 </div>
 <h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
 <div class="sub-content m-t-8 m-b-8">
-	<h3 class="m-l-16">3.1 - Minh hoạ ý tưởng:<h3/>
+	<h3 class="m-l-16">3.1 - Minh hoạ ý tưởng:</h3>
 	<img
-		src="/assets/images/merge-sort-illustration.jpg"
+		src="/assets/images/sort/merge-sort-illustration.jpg"
 		alt="Merge sort illustration photo"
 		width="100%"
 		heigh="650px"
 	/>
 	<p class="t-center m-tb-12" style="font-size:16px">Nguồn: https://www.programiz.com/</p>
-	<h3 class="m-l-16 m-t-16 m-b-8">3.2 - Hàm merge sort:<h3/>
+	<h3 class="m-l-16 m-t-16 m-b-8">3.2 - Hàm merge sort:</h3>
 	<img
-	src="/assets/images/merge-sort.jpg"
+	src="/assets/images/sort/merge-sort.jpg"
 	alt="Merge sort photo"
 	width="100%"
 />
@@ -443,5 +443,99 @@ const mergeSortDesc = {
 	- Thuật toán khá ổn định trong mọi trường hợp.<br/>
 	- <b>Nhược điểm:</b><br/>
 	  &nbsp;	+ Tốn khá nhiều không gian phụ để gộp mảng <br />
+</div>`,
+};
+
+const heapSortDesc = {
+	title: 'HEAP SORT ALGORITHM',
+	sortNotes: [
+		{
+			title: 'Parent Node',
+			color: '#F24A0E',
+		},
+		{
+			title: 'Swap Item 1',
+			color: CURRENT_ITEM_COLOR,
+		},
+		{
+			title: 'Swap Item 2',
+			color: SECOND_ITEM_COLOR,
+		},
+		{
+			title: 'Sorted Item',
+			color: DONE_ITEM_COLOR,
+		},
+	],
+	htmlContent: `<h2 class="sub-title">
+	1) Độ phức tạp thuật toán (Algorithm Complexity BigO):
+</h2>
+<br />
+<div class="sub-content">
+	<u>- Độ phức tạp thời gian (Time Complexity):</u>
+	<br />
+	<div class="p-l-8 m-tb-8">
+		Best case: <b>O( n log(n) )</b>
+		<br />
+		Average case: <b>O( n log(n) )</b>
+		<br />
+		Worst case: <b>O( n log(n) )</b>
+		<br />
+	</div>
+
+	<u>- Độ phức tạp bộ nhớ (Menory Complexity):</u>
+	<br />
+	<div class="p-l-8 m-tb-8">Worst case: <b>O(1)</b></div>
+</div>
+<h2 class="sub-title">2) Ý tưởng thuật toán (Algorithm Idea):</h2>
+<br />
+<div class="sub-content">
+	<u>- Đầu vào:</u>
+	<br />
+	<div class="p-l-8 m-tb-8">
+		- <b>arr</b>: mảng cần sắp xếp. <br />
+		- <b>n</b>: số lượng phần tử của mảng. <br />
+	</div>
+	<u>- Ý tưởng:</u>
+	<br />
+	<div class="p-l-8 m-tb-8">
+	- Sử dụng tính chất của cấu trúc dữ liệu heap (max heap, min heap).<br/>
+	- Đầu tiên xây dựng một max-heap (min-heap).<br/>
+	- Hoán vị phần tử root của heap với phần tử cuối.<br/>
+	- Xoá phần tử cuối ra khỏi heap.<br/>
+	- Xây dựng lại heap tại phần tử root.<br/>
+	</div>
+</div>
+<h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
+<div class="sub-content m-t-8 m-b-8">
+	<h3 class="m-l-16">3.1 - Minh hoạ ý tưởng:</h3>
+	<span>Mọi người xem chi tiết cấu trúc "Heap" là gì và cách xây dựng heap</span> <a href="/structures/heap" style="color:#6EC4E6">tại đây</a> nhé
+	<img
+		src="/assets/images/sort/max-heap.jpg"
+		alt="Max heap illustration photo"
+		width="100%"
+		heigh="650px"
+	/>
+	<img
+		src="/assets/images/sort/rebuild-max-heap.jpg"
+		alt="Max heap illustration photo"
+		width="100%"
+		heigh="650px"
+	/>
+	<h3 class="m-l-16 m-t-16 m-b-8">3.2 - Hàm heap sort:</h3>
+	<img
+	src="/assets/images/sort/max-heapify.jpg"
+	alt="Max heapify photo"
+	width="100%"
+/>
+	<img
+	src="/assets/images/sort/heap-sort.jpg"
+	alt="Heap sort photo"
+	width="100%"
+/>
+</div>
+<h2 class="sub-title">4) Ghi chú (Note):</h2>
+<div class="sub-content">
+	- Nên dùng cho mảng kích thước lớn. <br />
+	- Thuật toán khá ổn định trong mọi trường hợp.<br/>
 </div>`,
 };

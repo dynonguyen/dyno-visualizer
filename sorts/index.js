@@ -3,6 +3,7 @@ const selectionSort = require('./selection-sort');
 const insertionSort = require('./insertion-sort');
 const quickSort = require('./quick-sort');
 const mergeSort = require('./merge-sort');
+const heapSort = require('./heap-sort');
 // @fn: random a number array
 // type = 0: random, 1: ascending, 2: decending
 const generateRandomData = (length = 10, type = 0, max = 1000) => {
@@ -27,7 +28,7 @@ const generateRandomData = (length = 10, type = 0, max = 1000) => {
 };
 
 // @initial data
-const len = 1000_000;
+const len = 1000;
 const randomArr = generateRandomData(len, 0);
 const ascenArr = generateRandomData(len, 1);
 const descenArr = generateRandomData(len, 2);
@@ -76,6 +77,9 @@ function testing() {
 
 	// 6) MERGE SORT
 	timeLogger('MERGE SORT', (arr) => mergeSort(arr, 0, arr.length - 1));
+
+	// 7) HEAP SORT
+	timeLogger('HEAP SORT', heapSort);
 }
 
 testing();
