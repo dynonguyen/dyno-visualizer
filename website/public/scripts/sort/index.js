@@ -94,6 +94,8 @@ function getDescAlg(key = 'bubble') {
 			return mergeSortDesc;
 		case 'heap':
 			return heapSortDesc;
+		case 'stupid':
+			return stupidSortDesc;
 		default:
 			return basicBubbleSortDesc;
 	}
@@ -170,6 +172,10 @@ const OPTION_ALGORITHMS = [
 	{
 		title: 'Heap Sort',
 		value: 'heap',
+	},
+	{
+		title: 'Stupid Sort',
+		value: 'stupid',
 	},
 ];
 
@@ -361,6 +367,12 @@ $(document).ready(() => {
 				nHSCompare = 0;
 				nHSArrAccess = 0;
 				nHSSwap = 0;
+				break;
+			case 'stupid':
+				resultAnalys = await stupidSort([...initArr]);
+				nStCompare = 0;
+				nStArrAccess = 0;
+				nStSwap = 0;
 				break;
 			default:
 				break;

@@ -539,3 +539,40 @@ const heapSortDesc = {
 	- Thuật toán khá ổn định trong mọi trường hợp.<br/>
 </div>`,
 };
+
+const stupidSortDesc = {
+	title: '🍀 STUPID SORT ALGORITHM 🐢',
+	sortNotes: [
+		{
+			title: 'Current test item',
+			color: CURRENT_ITEM_COLOR,
+		},
+	],
+	htmlContent: `<h2 class="sub-title">
+	1) Độ phức tạp thuật toán (Algorithm Complexity BigO):
+</h2>
+<div class="sub-content p-tb-8">
+	- O(∞) hay O(nhân phẩm)
+</div>
+<h2 class="sub-title">2) Ý tưởng thuật toán (Algorithm Idea):</h2>
+<div class="sub-content">
+	<div class="p-l-8 m-tb-8">
+	- Xáo trộn mảng, kiểm tra mảng vừa xáo.<br/>
+	- Nếu đã xếp thì dừng, còn không thì lặp lại 🙂.<br/>
+	</div>
+</div>
+<h2 class="sub-title">3) Triển khai (Implement Algorithm):</h2>
+<div class="sub-content m-t-8 m-b-8">
+	<h3 class="m-l-16 m-t-16 m-b-8">3.2 - Hàm stupid sort:</h3>
+	<img
+	src="/assets/images/sort/stupid-sort.jpg"
+	alt="Stupid sort photo"
+	width="100%"
+/>
+</div>
+<h2 class="sub-title">4) Ghi chú (Note):</h2>
+<div class="sub-content">
+	- Dùng để kiểm tra nhân phẩm người dùng. 🐭<br />
+	- Chán quá thì dùng cho vui chứ không có ý nghĩa gì. 😜<br/>
+</div>`,
+};
