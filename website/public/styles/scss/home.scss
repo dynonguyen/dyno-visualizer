@@ -1,19 +1,19 @@
+@import './mixin.scss';
+
 #aboutMe {
   h1 {
     min-width: 80vw;
     text-align: center;
     font-size: 5.4rem;
-    background: rgb(55, 56, 57);
-    background: linear-gradient(117deg, rgba(55, 56, 57, 1) 0%, rgba(233, 127, 56, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: all 2.2s;
+    font-weight: bold;
+    color: var(--title-color);
+    @include transition(all, 2.2s);
   }
 
   h3 {
     text-align: center;
     font-size: 2.4rem;
-    color: #373839;
+    color: var(--secondary-color);
     font-weight: 900;
     margin-top: 16px;
   }
@@ -21,30 +21,15 @@
 
 .contact-info li {
   font-size: 2.8rem;
-  padding: 8px 12px;
-  cursor: pointer;
-  color: #555;
+  padding: 0.8rem 1.2rem;
+  color: var(--text-color);
 
-  transition: all ease 0.4s;
+  cursor: pointer;
+  @include transition;
   &:hover,
   &:active {
     transform: scale(1.2);
-
-    &.fb {
-      color: #014b96;
-    }
-    &.email {
-      color: #e34133;
-    }
-    &.ins {
-      color: #eeac07;
-    }
-    &.in {
-      color: #026eab;
-    }
-    &.git {
-      color: #201e1f;
-    }
+    opacity: 0.85;
   }
 }
 
@@ -139,5 +124,10 @@
     h3 {
       font-size: 1.8rem;
     }
+  }
+
+  .logo-ani {
+    max-width: 152px;
+    max-height: 152px;
   }
 }

@@ -3,3 +3,5 @@ node_modules/
 yarn.lock
 note.txt
 demo-modal.html
+mixin.css
+.env

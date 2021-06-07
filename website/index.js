@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const homeRoute = require('./routes/home.route');
-const sortRoute = require('./routes/sort.route');
+const sortRoute = require('./routes/sort.route')
 
 // set port
 const PORT = process.env.PORT || 3333;
