@@ -43,6 +43,12 @@ nav {
     select option {
       background-color: var(--header-bg-color);
       opacity: 0.95;
+      padding: 4px 0;
+    }
+
+    select:focus > option:checked {
+      background-color: var(--primary-color);
+      color: var(--light-grey);
     }
   }
 }
@@ -194,20 +200,19 @@ nav {
     text-transform: uppercase;
     font-size: 2.6rem;
     letter-spacing: 1px;
+    font-weight: bold;
     margin: 12px 0;
   }
 }
 
 .desc-content {
-  & * {
-    color: var(--text-color);
-    letter-spacing: 0.5px;
-  }
   .sub-title {
-    font-size: 2.2rem;
+    color: var(--dark-color);
+    font-size: 2rem;
+    font-weight: 500;
   }
   .sub-content {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     padding-left: 18px;
   }
 }
@@ -222,5 +227,17 @@ nav {
   .sort-analysis-item,
   .sort-note-item__title {
     font-size: 1.4rem;
+  }
+
+  .desc-alg-modal .title {
+    font-size: 2rem;
+  }
+
+  .desc-content .sub-title {
+    font-size: 1.8rem;
+  }
+
+  .desc-content .sub-content {
+    font-size: 1.5rem;
   }
 }

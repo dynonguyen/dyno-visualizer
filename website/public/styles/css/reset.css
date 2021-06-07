@@ -10,8 +10,8 @@
 	--primary-color: #9977ee;
 	--secondary-color: #c96eed;
 
-	--light-color: #f7fe70;
-	--dark-color: #ffea70;
+	--light-color: #bcc247;
+	--dark-color: #c7ac10;
 
 	--label-color: #6e6e6e;
 
@@ -107,4 +107,8 @@ q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+code {
+	font-size: 1.6rem;
 }

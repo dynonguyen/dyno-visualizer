@@ -28,22 +28,6 @@ async function swapEle(i, j) {
 	});
 }
 
-// way 2: swap 2 element
-// async function swapEle(i, j) {
-// 	return new Promise((resolve, reject) => {
-// 		setTimeout(() => {
-// 			const node1 = $('.arr-item')[i],
-// 				node2 = $('.arr-item')[j];
-
-// 			const t = node1.clientHeight;
-// 			node1.style.height = `${node2.clientHeight}px`;
-// 			node2.style.height = `${t}px`;
-
-// 			resolve();
-// 		}, delay);
-// 	});
-// }
-
 // end swap
 async function endSwap(left, right) {
 	return new Promise((resolve, reject) => {
@@ -56,7 +40,7 @@ async function endSwap(left, right) {
 	});
 }
 
-// bubble color for buuble sort
+// change color item
 async function changeItemColor(index, color) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {

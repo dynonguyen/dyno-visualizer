@@ -7,20 +7,20 @@ mixin slideMenu
 
       a(href="/")
         li(class=current==='home'?'active':'').slide-menu-item 
-          span Home
+          span Trang chủ
 
       //- algotithms
       li(data-toggle-id="subAlg", class=current==='algorithm'?'active':'').slide-menu-item
-        span.arrow-down Algorithms
+        span.arrow-down Thuật toán
 
       ul.sub-slide-menu.hide#subAlg
         a(href="/algorithm/sort")
           li(class=sub==='sort'?'active':'').sub-slide-menu-item
-            span Sorts
+            span Sắp xếp
 
       //- data structure
       li.slide-menu-item 
-        span Data Structure
+        span CTDL&amp;GT
 
       //- js
       li.slide-menu-item 

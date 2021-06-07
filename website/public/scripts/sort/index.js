@@ -141,7 +141,7 @@ async function endSort() {
 
 // constant
 const MAX_SIZE = 2000,
-	MAX_DELAY = 1000;
+	MAX_DELAY = 2000;
 
 // (*)
 const OPTION_ALGORITHMS = [
@@ -223,7 +223,7 @@ $(document).ready(() => {
 		} else {
 			thisEle.removeClass('less').addClass('more');
 			thisEle
-				.children('.fas')
+				.children('.fal')
 				.removeClass('fa-chevron-circle-down')
 				.addClass('fa-chevron-circle-up');
 			$('.sort-input').show(250);

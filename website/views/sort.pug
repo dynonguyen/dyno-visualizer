@@ -1,7 +1,10 @@
 extends template/empty-content.pug
 block style 
+  link(rel='stylesheet' type="text/css" href="/vendors/prism/prism.min.css")
+  script(src="/vendors/prism/prism.min.js")
   link(rel='stylesheet' type="text/css" href='/styles/css/sort.css')
   link(rel='stylesheet' type="text/css" href='/styles/css/menu.css')
+
 block content
   .d-flex.flex-col.h-100
     //- navigation
@@ -50,7 +53,7 @@ block content
       .flex-center.sort-input.flex-grow-1
         // size
         .sort-input-item
-          label(for='size') Size
+          label(for='size') Kích thước
           input#size(type='number' min='1' max='1000' value='1' name='size')
         // delay time
         .sort-input-item
@@ -58,21 +61,21 @@ block content
           input#delay(type='number' min='0' max='1000' value='0' name='delay')
         // array type
         .sort-input-item
-          label(for='type') Array Type
+          label(for='type') Loại mảng
           select#type(name='type')
         // sort algorithm
         .sort-input-item
-          label(for='algorithm') Algorithm
+          label(for='algorithm') Thuật toán
           select#algorithm(name='algorithm')
       // generate button
       .flex-center.sort-btn.flex-grow-1
         button#descAlgBtn.sort-btn-item
-          | Description Algorithm 
+          | Mô tả &nbsp;
           i.fal.fa-info-circle
         button#generateBtn.sort-btn-item
-          | Generate an Array
-        button#oldUnsortedBtn.sort-btn-item Get Old Unsorted Array
-        button.sort-btn-item#sortBtn Sort
+          | Tạo mảng ngẫu nhiên
+        button#oldUnsortedBtn.sort-btn-item Lấy lại mảng cũ
+        button.sort-btn-item#sortBtn Sắp xếp
       // show/hide control button for small device
       #hideControlBtn.pos-abs.cur-pointer.more
         i.fal.fa-chevron-circle-up
@@ -80,13 +83,13 @@ block content
     // visualize sort
     ul#sortNote.flex-center.flex-wrap
     ul#sortAnalysis.flex-center.flex-wrap
-      li.sort-analysis-item Status:
+      li.sort-analysis-item Trạng thái:
         span#sortStatus
-      li.sort-analysis-item Comparisons:
+      li.sort-analysis-item So sánh:
         span#numOfComparision 
-      li.sort-analysis-item Swap:
+      li.sort-analysis-item Hoán vị:
         span#numOfSwap
-      li.sort-analysis-item Array Accesses:
+      li.sort-analysis-item Truy cập mảng:
         span#numOfArrAccess 
     section.visual-sort.flex-grow-1
       ul#graph.w-100.h-100.d-flex.pos-rel
@@ -107,7 +110,6 @@ block content
 block script
   script(src='/scripts/menu.js')
   script(src='/scripts/sort/constant.js')
-  script(src='/scripts/sort/algorithm-desc.js') 
   script(src='/scripts/sort/prepare-sort.js') 
   script(src='/scripts/sort/bubble-sort.js')
   script(src='/scripts/sort/selection-sort.js')
