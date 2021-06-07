@@ -211,7 +211,7 @@ $(document).ready(() => {
 		if (thisEle.hasClass('more')) {
 			thisEle.removeClass('more').addClass('less');
 			thisEle
-				.children('.fas')
+				.children('.fal')
 				.removeClass('fa-chevron-circle-up')
 				.addClass('fa-chevron-circle-down');
 

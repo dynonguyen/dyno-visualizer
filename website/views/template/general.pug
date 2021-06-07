@@ -6,7 +6,9 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='icon' href='/assets/icons/favicon.png')
   title #{title || 'Algorithms With Dyno'}
-  link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous')
+  link(rel="preconnect" href="https://fonts.gstatic.com")
+  link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet")
+  link(rel='stylesheet' type="text/css" href='/vendors/font-awesome/css/all.min.css' )
   link(rel='stylesheet' type='text/css' href='/styles/css/atomic.css')
   link(rel='stylesheet' type='text/css' href='/styles/css/menu.css')
   link(rel='stylesheet' type='text/css' href='/styles/css/reset.css')
@@ -21,33 +23,38 @@ body
         a(href='/')
           i.fas.fa-home
       .menu-item#slideMenuIcon
-        i.fas.fa-bars
+        i.fal.fa-bars
 
     ul.menu.d-flex
       li(class=current === 'home' ? 'active' : '').menu-item
         a(href='/')
           i.fas.fa-home
       li(class=current === 'algorithm' ? 'active' : '').menu-item
-        | Algorithms
+        | Thuật toán
         // Sub menu for algorithm
         ul.sub-menu.flex-col
           a(href='/algorithm/sort')
-            li.sub-menu-item Sorts
-      li(class=current === '' ? 'data-structure' : '' ).menu-item Data Structures
+            li.sub-menu-item Sắp xếp
+      li(class=current === '' ? 'data-structure' : '' ).menu-item CTDL&amp;GT
       li(class=current === '' ? 'js' : '' ).menu-item Javascript
       li(class=current === '' ? 'tips' : '' ).menu-item Tips
 
-    // search
-    .search-bar.flex-center--ver
-      #searchBar.search-bar-control(style='display: none')
-        input(autofocus='' maxlength='40' type='text' placeholder='Enter the keyword ...')
-        button#search.btn
-          i.fas.fa-search
-      #openSearchIcon.search-bar-icon.flex-center--ver.h-100
-        i.fas.fa-search
-      // close search icon
-      #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
-        i.fas.fa-times
+    .flex-center--ver
+      // change-theme
+      .m-r-6
+        i#themeBtn.fal
+      
+      // search
+      .search-bar.flex-center--ver
+        #searchBar.search-bar-control(style='display: none')
+          input(autofocus='' maxlength='40' type='text' placeholder='Nhập từ khoá ...')
+          button#search.btn
+            i.fal.fa-search
+        #openSearchIcon.search-bar-icon.flex-center--ver.h-100
+          i.fal.fa-search
+        // close search icon
+        #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
+          i.fal.fa-times
 
   //- content
   block content
@@ -58,6 +65,7 @@ body
 
   //- script
   script(src='/vendors/scripts/jquery.min.js')
+  script(src="/scripts/main.js") 
   script(src='/scripts/menu.js')
   block script
 

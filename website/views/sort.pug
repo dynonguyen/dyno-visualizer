@@ -12,32 +12,38 @@ block content
           a(href='/')
             i.fas.fa-home
         .menu-item#slideMenuIcon
-          i.fas.fa-bars
+          i.fal.fa-bars
 
       ul.menu.d-flex
         li.menu-item
           a(href='/')
             i.fas.fa-home
         li.menu-item.active
-          | Algorithms
+          | Thuật toán
           // Sub menu for algorithm
           ul.sub-menu.flex-col
             a(href='/algorithm/sort')
-              li.sub-menu-item Sorts
-        li.menu-item Data Structures
+              li.sub-menu-item Sắp xếp
+        li.menu-item CTDL&amp;GT
         li.menu-item Javascript
         li.menu-item Tips
-      // search
-      .search-bar.flex-center--ver
-        #searchBar.search-bar-control(style='display: none')
-          input(autofocus='' maxlength='40' type='text' placeholder='Enter the keyword ...')
-          button#search.btn
-            i.fas.fa-search
-        #openSearchIcon.search-bar-icon.flex-center--ver.h-100
-          i.fas.fa-search
-        // close search icon
-        #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
-          i.fas.fa-times
+
+      .flex-center--ver
+        // change-theme
+        .m-r-6
+          i#themeBtn.fal
+
+        // search
+        .search-bar.flex-center--ver
+          #searchBar.search-bar-control(style='display: none')
+            input(autofocus='' maxlength='40' type='text' placeholder='Nhập từ khoá ...')
+            button#search.btn
+              i.fal.fa-search
+          #openSearchIcon.search-bar-icon.flex-center--ver.h-100
+            i.fal.fa-search
+          // close search icon
+          #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
+            i.fal.fa-times
 
     // control
     section#sortControl.d-flex.pos-rel
@@ -62,21 +68,21 @@ block content
       .flex-center.sort-btn.flex-grow-1
         button#descAlgBtn.sort-btn-item
           | Description Algorithm 
-          i.fas.fa-info-circle
+          i.fal.fa-info-circle
         button#generateBtn.sort-btn-item
           | Generate an Array
         button#oldUnsortedBtn.sort-btn-item Get Old Unsorted Array
         button.sort-btn-item#sortBtn Sort
       // show/hide control button for small device
       #hideControlBtn.pos-abs.cur-pointer.more
-        i.fas.fa-chevron-circle-up
+        i.fal.fa-chevron-circle-up
 
     // visualize sort
     ul#sortNote.flex-center.flex-wrap
     ul#sortAnalysis.flex-center.flex-wrap
       li.sort-analysis-item Status:
         span#sortStatus
-      li.sort-analysis-item Comparisions:
+      li.sort-analysis-item Comparisons:
         span#numOfComparision 
       li.sort-analysis-item Swap:
         span#numOfSwap
@@ -94,7 +100,7 @@ block content
   .desc-alg-modal-wrap.trans-center#descAlgModal
     .desc-alg-modal#pos-rel
       .close-icon.cur-pointer.t-right#closeModal
-        i.fas.fa-times
+        i.fal.fa-times
       h1.title.t-center#descTitle
       #descContent.desc-content
 

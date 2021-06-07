@@ -1,4 +1,5 @@
 /// <reference path="D:\tips\typings\jquery\globals\jquery\index.d.ts" />
+
 $(document).ready(function () {
 	// show search bar
 	$('#openSearchIcon').click(function () {
@@ -41,5 +42,19 @@ $(document).ready(function () {
 				subMenu.hide(250);
 			}
 		}
+	});
+
+	// change theme
+	$('#themeBtn').click(function () {
+		const nextTheme =
+			localStorage.getItem('theme') === 'light' ? 'dark' : 'light';
+
+		$(':root').attr('data-theme', nextTheme);
+		localStorage.setItem('theme', nextTheme);
+
+		// change icon
+		if ($(this).hasClass('fa-sun'))
+			$(this).removeClass('fa-sun').addClass('fa-moon');
+		else $(this).removeClass('fa-moon').addClass('fa-sun');
 	});
 });

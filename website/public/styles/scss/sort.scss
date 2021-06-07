@@ -1,12 +1,14 @@
+@import './mixin.scss';
+
 nav {
   z-index: 2 !important;
 }
 
 #sortControl {
-  padding: 14px 16px;
-  background-color: #383a59;
+  padding: 1.4rem 1.6rem;
+  background-color: var(--header-bg-color);
   flex-wrap: wrap;
-  box-shadow: 0 2px 5px 2px rgba(17, 17, 17, 0.2);
+  border-bottom: solid 2px var(--secondary-color);
 }
 
 .sort-input {
@@ -18,24 +20,28 @@ nav {
     label {
       display: inline-block;
       margin-right: 4px;
-      font-size: 1.4rem;
-      color: #fff;
-      font-weight: bold;
       margin-bottom: 2px;
+
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--label-color);
     }
 
     input,
     select {
       padding: 6px 8px;
       outline: none;
-      border: solid 1px #e87bc2;
+      font-size: 1.4rem;
+
+      border: solid 1px var(--primary-color);
       border-radius: 4px;
-      color: #fff;
+
+      color: var(--label-color);
       background: transparent;
     }
 
     select option {
-      background-color: #383a59;
+      background-color: var(--header-bg-color);
       opacity: 0.95;
     }
   }
@@ -47,18 +53,19 @@ nav {
   &-item {
     margin: 2px 4px;
     background: transparent;
-    border: solid 1px #e87bc2;
-    color: #d5d5d5;
+    border: solid 1px var(--primary-color);
+    color: var(--text-color);
 
-    padding: 10px 14px;
+    padding: 1rem 1.4rem;
     border-radius: 4px;
     font-size: 1.4rem;
 
-    transition: all 0.35s;
+    @include transition;
     cursor: pointer;
+
     &:hover,
     &:active {
-      color: #fff;
+      color: var(--secondary-color);
     }
 
     &.disabled {
@@ -70,12 +77,11 @@ nav {
 
 .visual-sort {
   width: 100vw;
-  height: 100%;
   padding: 8px;
 }
 
 #graph {
-  border-bottom: solid 8px #191932;
+  border-bottom: solid 8px #111;
   align-items: flex-end;
 }
 
@@ -87,12 +93,11 @@ nav {
 }
 
 #hideControlBtn {
-  display: none;
   top: 18px;
   right: 26px;
   font-size: 2rem;
-  color: #fff;
-  transition: all 0.35s;
+  color: var(--primary-color);
+  @include transition;
 
   &:hover,
   &:active {
@@ -105,16 +110,16 @@ nav {
 }
 
 .sort-note-item {
-  margin: 0 16px;
+  margin: 2px 16px;
   &__title {
     font-size: 1.8rem;
-    color: #666;
+    color: var(--label-color);
     letter-spacing: 1px;
   }
 
   &__color {
-    height: 20px;
-    width: 40px;
+    height: 2rem;
+    width: 4rem;
     margin-left: 4px;
   }
 }
@@ -125,13 +130,13 @@ nav {
 
 .sort-analysis-item {
   font-size: 1.8rem;
-  color: #666;
-  margin: 0 8px;
+  color: var(--title-color);
+  margin: 2px 8px;
 
   span {
-    font-weight: bold;
     display: inline-block;
-    color: #333;
+    font-weight: 500;
+    color: var(--label-color);
     margin-left: 4px;
   }
 }
@@ -154,14 +159,14 @@ nav {
   width: 100%;
   &-wrap {
     display: none;
-    background-color: #fff;
+    background-color: var(--body-bg-color);
     z-index: 99;
     max-height: 90vh;
     min-width: 65vw;
     max-width: 95vw;
 
     overflow: auto;
-    box-shadow: 0px 0px 5px 4px rgba(#000, 0.1);
+    box-shadow: 0px 0px 5px 4px rgba(#e5e5e5, 0.1);
     border-radius: 4px;
     padding-right: 0;
 
@@ -185,7 +190,7 @@ nav {
   }
 
   .title {
-    color: #282a36;
+    color: var(--title-color);
     text-transform: uppercase;
     font-size: 2.6rem;
     letter-spacing: 1px;
@@ -195,7 +200,7 @@ nav {
 
 .desc-content {
   & * {
-    color: #333;
+    color: var(--text-color);
     letter-spacing: 0.5px;
   }
   .sub-title {
@@ -208,17 +213,14 @@ nav {
 }
 
 @media only screen and (max-width: 830px) {
-  #hideControlBtn {
-    display: block;
+  .desc-alg-modal-wrap {
+    min-width: 90vw;
   }
 }
 
-@media only screen and (max-width: 830px) {
-  #hideControlBtn {
-    display: block;
-  }
-
-  .desc-alg-modal-wrap {
-    min-width: 90vw;
+@media only screen and (max-width: 480px) {
+  .sort-analysis-item,
+  .sort-note-item__title {
+    font-size: 1.4rem;
   }
 }

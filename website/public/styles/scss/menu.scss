@@ -1,11 +1,22 @@
+@import './mixin.scss';
+$nav-height: 5.4rem;
+$box-shadow: 0px 2px 8px 1px rgba(#ccc, 0.35);
+
+@mixin menu-item-active {
+  background-color: var(--primary-color);
+  color: var(--contrast-color);
+}
+
 // ======= Navigation =======
 nav {
-  background-color: #282a36;
-  height: 4.8rem;
-  box-shadow: 0 2px 5px 2px rgba(#111, 0.2);
+  background-color: var(--header-bg-color);
+  height: $nav-height;
+  box-shadow: $box-shadow;
 
   position: -webkit-sticky;
+  position: -webkit-sticky;
   position: sticky;
+
   top: 0;
   left: 0;
   width: 100%;
@@ -13,23 +24,23 @@ nav {
 
 .menu {
   &-item {
-    color: #fff;
+    color: var(--text-color);
     text-transform: uppercase;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.75px;
 
     position: relative;
-    padding: 8px 16px;
+    padding: 0.8rem 1.6rem;
     display: flex;
     align-items: center;
 
-    transition: all 0.35s;
+    @include transition;
     cursor: pointer;
 
     &:hover,
     &:active {
-      background-color: #111;
+      @include menu-item-active;
 
       & .sub-menu {
         visibility: visible;
@@ -39,70 +50,76 @@ nav {
     }
 
     &.active {
-      background-color: #e87bc2;
+      @include menu-item-active;
     }
 
     i {
-      font-size: 2rem;
+      font-size: var(--header-icon-fs);
     }
   }
 }
 
 .sub-menu {
   position: absolute;
-  top: 5rem;
+  top: $nav-height;
   left: 0;
-  box-shadow: 0 2px 5px 2px rgba(#111, 0.2);
+  box-shadow: $box-shadow;
 
-  transition: all 0.15s;
+  @include transition(all, 0.15s);
   opacity: 0;
   visibility: hidden;
-  height: 0;
 
-  background-color: #282a36;
+  background-color: var(--header-bg-color);
   padding: 8px 0;
 
   &-item {
     padding: 0.8rem 5.2rem;
-    transition: all 0.3s;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    color: var(--text-color);
+    @include transition;
 
     &:hover,
     &:active {
-      background-color: #111;
+      color: var(--secondary-color);
     }
   }
 }
 
 .search-bar {
-  &-icon {
-    i {
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    padding: 12px 18px;
-    margin-left: 12px;
-    transition: all 0.3s;
+  &-icon i {
+    font-size: var(--header-icon-fs);
+    color: var(--text-color);
+    cursor: pointer;
+    margin-left: 1.2rem;
+    @include transition;
 
     &:hover,
     &:active {
-      background-color: #111;
+      transform: scale(1.1);
+      color: var(--primary-color);
     }
   }
 
   &-control {
-    input {
+    @mixin search-input {
       outline: none;
-      padding: 6px 8px;
-      border: none;
+      padding: 0.8rem 1.2rem;
+      height: calc(#{$nav-height} / 1.5);
+    }
+
+    input {
+      @include search-input;
+      border: solid 1px var(--light-grey);
     }
 
     #search {
-      padding: 6px 12px;
-      background-color: #bd93f9;
-      color: #fff;
+      @include search-input;
       border: none;
+
+      @include menu-item-active;
+      cursor: pointer;
     }
   }
 }
@@ -115,7 +132,8 @@ nav {
 #slideNav {
   z-index: 3;
   min-height: 100vh;
-  background-color: #282a36;
+  background-color: var(--header-bg-color);
+
   position: fixed;
   top: 0;
   left: 0;
@@ -123,10 +141,10 @@ nav {
 
   .icon {
     font-size: 2.4rem;
-    color: #fff;
-    padding: 24px;
+    color: var(--text-color);
+    padding: 2.4rem;
     text-align: right;
-    border-bottom: solid 1px #4a4e4e;
+    border-bottom: solid 1px var(--light-grey);
 
     &:hover,
     &:active {
@@ -140,24 +158,33 @@ nav {
 
 @mixin menu-item {
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   letter-spacing: 0.75px;
   text-transform: uppercase;
 
-  color: #fff;
-  padding: 16px 64px;
+  color: var(--text-color);
+  padding: 1.6rem 6.4rem;
 
-  transition: all 0.35s;
+  @include transition;
   cursor: pointer;
 }
 
 .slide-menu {
   &-item {
     @include menu-item;
-    border-bottom: solid 1px #4a4e4e;
+    border-bottom: solid 1px var(--light-grey);
+
     &:hover,
     &:active {
-      background-color: #111;
+      @include menu-item-active;
+
+      .arrow-down::after {
+        border-top-color: var(--contrast-color);
+      }
+
+      .arrow-up::after {
+        border-bottom-color: var(--contrast-color);
+      }
     }
 
     span {
@@ -166,21 +193,16 @@ nav {
     }
 
     &.active {
-      background-color: #e87bc2;
+      @include menu-item-active;
+      .arrow-down::after {
+        border-top-color: var(--contrast-color);
+      }
+
+      .arrow-up::after {
+        border-bottom-color: var(--contrast-color);
+      }
     }
   }
-}
-
-// overlay
-#overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #888;
-  opacity: 0.3;
-  display: none;
 }
 
 // arrow slide menu
@@ -193,39 +215,40 @@ nav {
 
   position: absolute;
   top: 50%;
-  right: -16px;
+  right: -1.6rem;
   transform: translateY(-50%);
 }
 
 .arrow-down {
   &::after {
     @include arrow;
-    border-top: solid 5px #fff;
+    border-top: solid 5px var(--text-color);
   }
 }
 
 .arrow-up {
   &::after {
     @include arrow;
-    border-bottom: solid 5px #fff;
+    border-bottom: solid 5px var(--text-color);
   }
 }
 
 // sub slide menu
 .sub-slide-menu {
-  background-color: #343746;
+  background-color: var(--header-bg-color);
   display: none;
+
   &-item {
     @include menu-item;
 
     &:hover,
     &:active {
-      background-color: #222;
+      color: var(--secondary-color);
     }
 
     span {
       display: inline-block;
-      transform: translateX(20px);
+      transform: translateX(2rem);
     }
 
     &.active {
@@ -233,6 +256,20 @@ nav {
         text-decoration: underline;
       }
     }
+  }
+}
+
+// theme button
+#themeBtn {
+  color: var(--text-color);
+  font-size: var(--header-icon-fs);
+  cursor: pointer;
+  @include transition;
+
+  &:hover,
+  &:active {
+    transform: scale(1.1);
+    color: var(--primary-color);
   }
 }
 
@@ -266,8 +303,8 @@ nav {
 
 // animation
 .show-slide-menu {
-  -webkit-animation: showSlide 0.35s ease-in forwards;
-  animation: showSlide 0.35s ease-in forwards;
+  -webkit-animation: showSlide 0.25s ease-in forwards;
+  animation: showSlide 0.25s ease-in forwards;
 }
 
 @-webkit-keyframes showSlide {
