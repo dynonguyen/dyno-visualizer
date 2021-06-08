@@ -583,6 +583,54 @@
   padding-bottom: 18px;
 }
 
+.m-10 {
+  margin: 20px;
+}
+.m-t-10 {
+  margin-top: 20px;
+}
+.m-b-10 {
+  margin-bottom: 20px;
+}
+.m-l-10 {
+  margin-left: 20px;
+}
+.m-r-10 {
+  margin-right: 20px;
+}
+.m-lr-10 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.m-tb-10 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.p-10 {
+  padding: 20px;
+}
+.p-t-10 {
+  padding-top: 20px;
+}
+.p-b-10 {
+  padding-bottom: 20px;
+}
+.p-l-10 {
+  padding-left: 20px;
+}
+.p-r-10 {
+  padding-right: 20px;
+}
+.p-lr-10 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.p-tb-10 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .m-lr-auto {
   margin-left: auto;
   margin-right: auto;
@@ -618,21 +666,6 @@
 
 .fw-b {
   font-weight: bold;
-}
-
-.cur-pointer {
-  cursor: pointer;
-}
-
-#overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--grey);
-  opacity: 0.3;
-  display: none;
 }
 
 /*# sourceMappingURL=atomic.css.map */

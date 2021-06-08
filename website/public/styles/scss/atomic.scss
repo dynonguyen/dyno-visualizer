@@ -183,7 +183,7 @@
 }
 
 // spacing 2-20 px (diff 2)*2
-@for $i from 1 to 10 {
+@for $i from 1 to 11 {
   .m {
     &-#{$i} {
       margin: #{$i * 2}px;
@@ -279,21 +279,4 @@
   &-b {
     font-weight: bold;
   }
-}
-
-// utils
-.cur-pointer {
-  cursor: pointer;
-}
-
-// overlay
-#overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--grey);
-  opacity: 0.3;
-  display: none;
 }

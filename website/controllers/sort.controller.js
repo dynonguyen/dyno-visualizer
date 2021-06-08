@@ -1,6 +1,6 @@
 exports.getSortPage = (req, res, next) => {
 	try {
-		return res.render('sort', {
+		return res.render('sort-visualizer', {
 			title: 'Dyno - Sorting Visualizer',
 			current: 'algorithm',
 			sub: 'sort',
