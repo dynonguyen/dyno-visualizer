@@ -34,13 +34,18 @@ const generateRandomData = (length = 10, type = 0, max = 1000) => {
 		case 1:
 			arr.sort((a, b) => a - b);
 			// swap 2 last postion => generate ~sorted list
-			if (length > 1)
+			if (length > 2) {
 				[arr[length - 1], arr[length - 2]] = [arr[length - 2], arr[length - 1]];
+				[arr[length - 2], arr[length - 3]] = [arr[length - 3], arr[length - 2]];
+			}
 			break;
 		case 2:
 			arr.sort((a, b) => b - a);
-			if (length > 1)
+			if (length > 2) {
 				[arr[length - 1], arr[length - 2]] = [arr[length - 2], arr[length - 1]];
+				[arr[length - 2], arr[length - 3]] = [arr[length - 3], arr[length - 2]];
+			}
+
 			break;
 		default:
 			break;
