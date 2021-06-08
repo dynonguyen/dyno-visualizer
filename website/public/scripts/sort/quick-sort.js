@@ -172,6 +172,6 @@ const quickSortDesc = {
 	- <b>Nhược điểm:</b><br/>
 	  &nbsp;	+ Thuật toán bị chậm khi chọn pivot không tốt (nhân phẩm kém 😂🙂). <br />
 		&nbsp;	+ Tốt thêm bộ nhớ để lưu trữ đệ quy. <br/>
-	- <br>Ưu điểm:</br> Nếu pivot là phần tử gần trung bình cộng của các phần tử mảng thì thuật toán chạy rất nhanh. <br/>S
+	- Ưu điểm:</br> Nếu pivot là phần tử gần trung bình cộng của các phần tử mảng thì thuật toán chạy rất nhanh. <br/>S
 </div>`,
 };

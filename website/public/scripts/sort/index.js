@@ -96,6 +96,8 @@ function getDescAlg(key = 'bubble') {
 			return heapSortDesc;
 		case 'stupid':
 			return stupidSortDesc;
+		case 'lsd':
+			return radixSortLSDDesc;
 		default:
 			return basicBubbleSortDesc;
 	}
@@ -172,6 +174,10 @@ const OPTION_ALGORITHMS = [
 	{
 		title: 'Heap Sort',
 		value: 'heap',
+	},
+	{
+		title: 'Radix Sort (LSD)',
+		value: 'lsd',
 	},
 	{
 		title: 'Stupid Sort',
@@ -373,6 +379,9 @@ $(document).ready(() => {
 				nStCompare = 0;
 				nStArrAccess = 0;
 				nStSwap = 0;
+				break;
+			case 'lsd':
+				resultAnalys = await radixSortLSD([...initArr]);
 				break;
 			default:
 				break;
