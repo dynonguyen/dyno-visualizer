@@ -89,6 +89,8 @@ function getDescAlg(key = 'bubble') {
 			return basicBubbleSortDesc;
 		case 'enBubble':
 			return enhancedBubbleSortDesc;
+		case 'oe':
+			return oeSortDesc;
 		case 'selection':
 			return selectionSortDesc;
 		case 'insertion':
@@ -159,6 +161,10 @@ const OPTION_ALGORITHMS = [
 	{
 		title: 'Enhanced Bubble Sort',
 		value: 'enBubble',
+	},
+	{
+		title: 'Odd Even / Brick Sort',
+		value: 'oe',
 	},
 	{
 		title: 'Selection Sort',
@@ -354,6 +360,9 @@ $(document).ready(() => {
 				break;
 			case 'enBubble':
 				resultAnalys = await enhancedBubbleSort([...initArr]);
+				break;
+			case 'oe':
+				resultAnalys = await oddEvenSort([...initArr]);
 				break;
 			case 'selection':
 				resultAnalys = await selectionSort([...initArr]);
