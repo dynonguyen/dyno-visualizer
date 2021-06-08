@@ -33,8 +33,10 @@ body
         | Thuật toán
         // Sub menu for algorithm
         ul.sub-menu.flex-col
-          a(href='/algorithm/sort')
-            li.sub-menu-item Sắp xếp
+          a(href='/algorithm/sort/visualizer')
+            li.sub-menu-item Sắp xếp trực quan
+          a(href='/algorithm/sort/realtime')
+            li.sub-menu-item Sắp xếp thời gian thực
       li(class=current === '' ? 'data-structure' : '' ).menu-item CTDL&amp;GT
       li(class=current === '' ? 'js' : '' ).menu-item Javascript
       li(class=current === '' ? 'tips' : '' ).menu-item Tips

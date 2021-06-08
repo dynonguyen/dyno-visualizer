@@ -14,9 +14,12 @@ mixin slideMenu
         span.arrow-down Thuật toán
 
       ul.sub-slide-menu.hide#subAlg
-        a(href="/algorithm/sort")
+        a(href="/algorithm/sort/visualizer")
           li(class=sub==='sort'?'active':'').sub-slide-menu-item
-            span Sắp xếp
+            span Sắp xếp trực quan
+        a(href="/algorithm/sort/realtime")
+          li(class=sub==='sort-realtime'?'active':'').sub-slide-menu-item
+            span Sắp xếp thời gian thực
 
       //- data structure
       li.slide-menu-item 

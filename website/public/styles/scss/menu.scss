@@ -45,7 +45,6 @@ nav {
       & .sub-menu {
         visibility: visible;
         opacity: 1;
-        height: 100%;
       }
     }
 
@@ -65,19 +64,21 @@ nav {
   left: 0;
   box-shadow: $box-shadow;
 
-  @include transition(all, 0.15s);
   opacity: 0;
   visibility: hidden;
+  @include transition;
 
   background-color: var(--header-bg-color);
   padding: 8px 0;
 
   &-item {
-    padding: 0.8rem 5.2rem;
+    padding: 1.2rem 5.2rem;
+
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
     color: var(--text-color);
+
     @include transition;
 
     &:hover,
