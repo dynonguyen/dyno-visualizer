@@ -8,7 +8,7 @@ nav {
   padding: 1.4rem 1.6rem;
   background-color: var(--header-bg-color);
   flex-wrap: wrap;
-  border-bottom: solid 2px var(--secondary-color);
+  border-bottom: solid 1px var(--secondary-color);
 }
 
 .sort-input {
@@ -99,6 +99,7 @@ nav {
 }
 
 #hideControlBtn {
+  margin: 0.4rem;
   top: 18px;
   right: 26px;
   font-size: 2rem;

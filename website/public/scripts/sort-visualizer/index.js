@@ -225,10 +225,11 @@ $(document).ready(() => {
 	// web display
 	$('#hideControlBtn').click(function () {
 		const thisEle = $(this);
+
 		if (thisEle.hasClass('more')) {
 			thisEle.removeClass('more').addClass('less');
 			thisEle
-				.children('.fal')
+				.children('.fas')
 				.removeClass('fa-chevron-circle-up')
 				.addClass('fa-chevron-circle-down');
 
@@ -237,10 +238,11 @@ $(document).ready(() => {
 			$('#hideControlBtn').css({
 				top: 2,
 			});
+			$('#sortControl').css('border-bottom', 'none');
 		} else {
 			thisEle.removeClass('less').addClass('more');
 			thisEle
-				.children('.fal')
+				.children('.fas')
 				.removeClass('fa-chevron-circle-down')
 				.addClass('fa-chevron-circle-up');
 			$('.sort-input').show(250);
@@ -248,6 +250,10 @@ $(document).ready(() => {
 			$('#hideControlBtn').css({
 				top: 18,
 			});
+			$('#sortControl').css(
+				'border-bottom',
+				'solid 1px var(--secondary-color)',
+			);
 		}
 	});
 

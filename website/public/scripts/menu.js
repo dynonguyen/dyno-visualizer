@@ -46,6 +46,7 @@ $(document).ready(function () {
 
 	// change theme
 	$('#themeBtn').click(function () {
+		console.log('run');
 		const nextTheme =
 			localStorage.getItem('theme') === 'light' ? 'dark' : 'light';
 

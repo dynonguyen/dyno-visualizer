@@ -2,7 +2,11 @@ extends template/general.pug
 block style
   link(rel='stylesheet' type="text/css" href='/styles/css/home.css')
 block content
-  // content
+  //- navigation
+  include ./mixin/navigation.pug
+  +navigation
+
+  //- content
   section#aboutMe.trans-center.flex-center.flex-dir-col
     h1 Học lập trình với Dyno
     img(src="assets/icons/logo.png", alt="Logo")#logo.logo-ani
@@ -23,5 +27,3 @@ block content
       a(href='https://github.com/TuanNguyen2504' target='_blank')
         li.git
           i.fab.fa-github-square
-      
-  

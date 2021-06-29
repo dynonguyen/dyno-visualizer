@@ -1,0 +1,42 @@
+mixin navigation 
+  nav.d-flex.justify-content-between.container-fluid
+    // mobile navigation
+    .mobile-menu
+      div(class=current === 'home' ? 'active' : '').menu-item 
+        a(href='/')
+          i.fas.fa-home
+      .menu-item#slideMenuIcon
+        i.fal.fa-bars
+
+    ul.menu.d-flex
+      li(class=current === 'home' ? 'active' : '').menu-item
+        a(href='/')
+          i.fas.fa-home
+      li(class=current === 'algorithm' ? 'active' : '').menu-item
+        | Thuật toán
+        // Sub menu for algorithm
+        ul.sub-menu.flex-col
+          a(href='/algorithm/sort/visualizer')
+            li.sub-menu-item Sắp xếp trực quan
+          a(href='/algorithm/sort/realtime')
+            li.sub-menu-item Sắp xếp thời gian thực
+      li(class=current === '' ? 'data-structure' : '' ).menu-item CTDL&amp;GT
+      li(class=current === '' ? 'js' : '' ).menu-item Javascript
+      li(class=current === '' ? 'tips' : '' ).menu-item Tips
+
+    .flex-center--ver
+      // change-theme
+      .m-r-6
+        i#themeBtn.fal
+      
+      // search
+      .search-bar.flex-center--ver
+        #searchBar.search-bar-control(style='display: none')
+          input(autofocus='' maxlength='40' type='text' placeholder='Nhập từ khoá ...')
+          button#search.btn
+            i.fal.fa-search
+        #openSearchIcon.search-bar-icon.flex-center--ver.h-100
+          i.fal.fa-search
+        // close search icon
+        #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
+          i.fal.fa-times
