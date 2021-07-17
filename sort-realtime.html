@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./assets/icons/favicon.png">
+  <title>Dyno - Sorting Realtime</title>
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;1,300;1,400&amp;display=swap"
+    rel="stylesheet">
+
+  <!-- font anwsome -->
+  <script src="https://kit.fontawesome.com/7534282567.js" crossorigin="anonymous"></script>
+
+  <!-- styles -->
+  <link rel="stylesheet" type="text/css" href="./styles/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./styles/css/atomic.css">
+  <link rel="stylesheet" type="text/css" href="./styles/css/utils.css">
+  <link rel="stylesheet" type="text/css" href="./styles/css/menu.css">
+  <link rel="stylesheet" type="text/css" href="./styles/css/sort-realtime.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="m-t-9 p-lr-8">
+      <h1 class="header-title">So sánh thời gian chạy các thuật toán sắp xếp</h1>
+    </div>
+  </div>
+  <div id="overlay"></div>
+  <div id="slideNav">
+    <div class="icon cur-pointer"><i class="fas fa-times" id="closeSlideMenuIcon"></i></div>
+    <ul class="slide-menu">
+      <a href="index.html">
+        <li class="slide-menu-item"> <span>Trang chủ</span></li>
+      </a>
+      <li class="active slide-menu-item" data-toggle-id="subAlg">
+        <span class="arrow-down">Thuật toán</span>
+      </li>
+      <ul class="sub-slide-menu hide" id="subAlg">
+        <a href="/algorithm/sort/visualizer">
+          <li class="sub-slide-menu-item"><span>Sắp xếp trực quan</span></li>
+        </a>
+        <a href="/algorithm/sort/realtime">
+          <li class="active sub-slide-menu-item"><span>Sắp xếp thời gian thực</span></li>
+        </a>
+      </ul>
+      <li class="slide-menu-item">
+        <span>CTDL&amp;GT</span>
+      </li>
+      <li class="slide-menu-item">
+        <span>Javascript</span>
+      </li>
+      <li class="slide-menu-item">
+        <a href="https://github.com/TuanNguyen2504/javascript-tips" target="_blank">
+          JS Tips
+        </a>
+      </li>
+      <li class="slide-menu-item">
+        <a href="https://github.com/TuanNguyen2504/vscode-tips" target="_blank">
+          VSCode Tips
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- scripts -->
+  <script src="./vendors/jquery/jquery.min.js"></script>
+  <script src="./scripts/main.js"> </script>
+  <script src="./scripts/menu.js"></script>
+</body>
