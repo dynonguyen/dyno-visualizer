@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assets/icons/favicon.png" />
+  <title>Dyno - Sorting Visualizer</title>
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;1,300;1,400&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- font anwsome -->
+  <script src="https://kit.fontawesome.com/7534282567.js" crossorigin="anonymous"></script>
+
+  <!-- style -->
+  <link rel="stylesheet" type="text/css" href="/styles/css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/css/atomic.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/css/utils.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="/vendors/prism/prism.min.css" />
+  <script src="/vendors/prism/prism.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/styles/css/sort-visualizer.css" />
+</head>
+
+<body>
+  <div class="d-flex flex-col h-100">
+    <!-- navigation -->
+    <nav class="d-flex justify-content-between container-fluid">
+      <!-- mobile navigation-->
+      <div class="mobile-menu">
+        <div class="menu-item">
+          <a href="/"><i class="fas fa-home"></i></a>
+        </div>
+        <div class="menu-item" id="slideMenuIcon">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+
+      <!-- desktop navigation -->
+      <ul class="menu d-flex">
+        <li class="menu-item">
+          <a href="/"><i class="fas fa-home"></i></a>
+        </li>
+        <li class="active menu-item">
+          Thuật toán
+          <!-- Sub menu for algorithm-->
+          <ul class="sub-menu flex-col">
+            <a href="#">
+              <li class="sub-menu-item">Sắp xếp trực quan</li>
+            </a><a href="sort-realtime.html">
+              <li class="sub-menu-item">Sắp xếp thời gian thực</li>
+            </a>
+          </ul>
+        </li>
+        <li class="menu-item">CTDL&amp;GT</li>
+        <li class="menu-item">Javascript</li>
+        <li class="menu-item">
+          <a href="https://github.com/TuanNguyen2504/javascript-tips" target="_blank">JS Tips</a>
+        </li>
+        <li class="menu-item">
+          <a href="https://github.com/TuanNguyen2504/vscode-tips" target="_blank">VSCode Tips</a>
+        </li>
+      </ul>
+      <div class="flex-center--ver">
+        <!-- change-theme-->
+        <div class="m-r-6"><i class="fas" id="themeBtn"></i></div>
+        <!-- search-->
+        <div class="search-bar flex-center--ver">
+          <div class="search-bar-control d-flex" id="searchBar" style="display: none">
+            <input maxlength="40" type="text" placeholder="Nhập từ khoá ..." />
+            <button class="btn" id="search">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <div class="search-bar-icon flex-center--ver h-100" id="openSearchIcon">
+            <i class="fas fa-search"></i>
+          </div>
+          <!-- close search icon-->
+          <div class="search-bar-icon flex-center--ver h-100" id="closeSearchIcon" style="display: none">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- content -->
+    <section class="d-flex pos-rel" id="sortControl">
+      <div class="flex-center sort-input flex-grow-1">
+        <!-- size-->
+        <div class="sort-input-item">
+          <label for="size">Kích thước</label>
+          <input id="size" type="number" min="1" max="1000" value="1" name="size" />
+        </div>
+        <!-- delay time-->
+        <div class="sort-input-item">
+          <label for="delay">Delay (ms)</label>
+          <input id="delay" type="number" min="0" max="1000" value="0" name="delay" />
+        </div>
+        <!-- array type-->
+        <div class="sort-input-item">
+          <label for="type">Loại mảng</label>
+          <select id="type" name="type"></select>
+        </div>
+        <!-- sort algorithm-->
+        <div class="sort-input-item">
+          <label for="algorithm">Thuật toán</label>
+          <select id="algorithm" name="algorithm"></select>
+        </div>
+      </div>
+      <!-- generate button-->
+      <div class="flex-center sort-btn flex-grow-1">
+        <button class="sort-btn-item" id="descAlgBtn">
+          Mô tả &nbsp;<i class="fas fa-info-circle"></i>
+        </button>
+        <button class="sort-btn-item" id="generateBtn">
+          Tạo mảng ngẫu nhiên</button>
+        <button class="sort-btn-item" id="oldUnsortedBtn">
+          Lấy lại mảng cũ
+        </button>
+        <button class="sort-btn-item" id="sortBtn">Sắp xếp</button>
+      </div>
+      <!-- show/hide control button for small device-->
+      <div class="pos-abs cur-pointer more" id="hideControlBtn">
+        <i class="fas fa-chevron-circle-up"></i>
+      </div>
+    </section>
+
+    <!-- result -->
+    <ul class="flex-center flex-wrap" id="sortNote"></ul>
+    <ul class="flex-center flex-wrap" id="sortAnalysis">
+      <li class="sort-analysis-item">
+        Trạng thái:<span id="sortStatus"></span>
+      </li>
+      <li class="sort-analysis-item">
+        So sánh:<span id="numOfComparision"> </span>
+      </li>
+      <li class="sort-analysis-item">Hoán vị:<span id="numOfSwap"></span></li>
+      <li class="sort-analysis-item">
+        Truy cập mảng:<span id="numOfArrAccess"> </span>
+      </li>
+    </ul>
+    <section class="visual-sort flex-grow-1">
+      <ul class="w-100 h-100 d-flex pos-rel" id="graph"></ul>
+    </section>
+  </div>
+
+  <!-- algorithm details modal -->
+  <div class="overlay" id="modalOverlay"></div>
+  <div class="desc-alg-modal-wrap trans-center" id="descAlgModal">
+    <div class="desc-alg-modal" id="pos-rel">
+      <div class="close-icon cur-pointer t-right" id="closeModal">
+        <i class="fas fa-times"></i>
+      </div>
+      <h1 class="title t-center" id="descTitle"></h1>
+      <div class="desc-content" id="descContent"></div>
+    </div>
+  </div>
+  <div id="overlay"></div>
+  <!-- mobile menu slider -->
+  <div id="slideNav">
+    <div class="icon cur-pointer">
+      <i class="fas fa-times" id="closeSlideMenuIcon"></i>
+    </div>
+    <ul class="slide-menu">
+      <a href="/">
+        <li class="slide-menu-item"><span>Trang chủ</span></li>
+      </a>
+      <li class="active slide-menu-item" data-toggle-id="subAlg">
+        <span class="arrow-down">Thuật toán</span>
+      </li>
+      <ul class="sub-slide-menu hide" id="subAlg">
+        <a href="/algorithm/sort/visualizer">
+          <li class="active sub-slide-menu-item">
+            <span>Sắp xếp trực quan</span>
+          </li>
+        </a><a href="/algorithm/sort/realtime">
+          <li class="sub-slide-menu-item">
+            <span>Sắp xếp thời gian thực</span>
+          </li>
+        </a>
+      </ul>
+      <li class="slide-menu-item"><span>CTDL&amp;GT</span></li>
+      <li class="slide-menu-item"><span>Javascript</span></li>
+      <li class="slide-menu-item">
+        <a href="https://github.com/TuanNguyen2504/javascript-tips" target="_blank">JS Tips</a>
+      </li>
+      <li class="slide-menu-item">
+        <a href="https://github.com/TuanNguyen2504/vscode-tips" target="_blank">VSCode Tips</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- scripts -->
+  <script src="/vendors/jquery/jquery.min.js"></script>
+  <script src="/scripts/main.js"></script>
+  <script src="/scripts/menu.js"></script>
+  <script src="/scripts/sort-visualizer/constant.js"></script>
+  <script src="/scripts/sort-visualizer/prepare-sort.js"></script>
+  <script src="/scripts/sort-visualizer/bubble-sort.js"></script>
+  <script src="/scripts/sort-visualizer/selection-sort.js"></script>
+  <script src="/scripts/sort-visualizer/insertion-sort.js"></script>
+  <script src="/scripts/sort-visualizer/quick-sort.js"></script>
+  <script src="/scripts/sort-visualizer/merge-sort.js"></script>
+  <script src="/scripts/sort-visualizer/heap-sort.js"></script>
+  <script src="/scripts/sort-visualizer/radix-sort.js"></script>
+  <script src="/scripts/sort-visualizer/stupid-sort.js"></script>
+  <script src="/scripts/sort-visualizer/odd-even-sort.js"></script>
+  <script src="/scripts/sort-visualizer/index.js"></script>
+</body>
