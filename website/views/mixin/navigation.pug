@@ -6,7 +6,7 @@ mixin navigation
         a(href='/')
           i.fas.fa-home
       .menu-item#slideMenuIcon
-        i.fal.fa-bars
+        i.fas.fa-bars
 
     ul.menu.d-flex
       li(class=current === 'home' ? 'active' : '').menu-item
@@ -22,21 +22,24 @@ mixin navigation
             li.sub-menu-item Sắp xếp thời gian thực
       li(class=current === '' ? 'data-structure' : '' ).menu-item CTDL&amp;GT
       li(class=current === '' ? 'js' : '' ).menu-item Javascript
-      li(class=current === '' ? 'tips' : '' ).menu-item Tips
+      li(class=current === '' ? 'tips' : '' ).menu-item 
+        a(href="https://github.com/TuanNguyen2504/javascript-tips" target="_blank") JS Tips
+      li(class=current === '' ? 'tips' : '' ).menu-item 
+        a(href="https://github.com/TuanNguyen2504/vscode-tips" target="_blank") VSCode Tips
 
     .flex-center--ver
       // change-theme
       .m-r-6
-        i#themeBtn.fal
+        i#themeBtn.fas
       
       // search
       .search-bar.flex-center--ver
         #searchBar.search-bar-control(style='display: none')
           input(autofocus='' maxlength='40' type='text' placeholder='Nhập từ khoá ...')
           button#search.btn
-            i.fal.fa-search
+            i.fas.fa-search
         #openSearchIcon.search-bar-icon.flex-center--ver.h-100
-          i.fal.fa-search
+          i.fas.fa-search
         // close search icon
         #closeSearchIcon.search-bar-icon.flex-center--ver.h-100(style='display: none')
-          i.fal.fa-times
+          i.fas.fa-times
