@@ -1,0 +1,150 @@
+.wrapper {
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+// ----------- control section -------------
+.control-section {
+  border-bottom: solid 1px var(--secondary-color);
+  padding: 1.2rem 0;
+
+  & > * {
+    margin: 4px 1.6rem;
+  }
+}
+
+.sort-input {
+  &-item {
+    label {
+      display: inline-block;
+      margin-right: 4px;
+      margin-bottom: 2px;
+
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--label-color);
+    }
+
+    input,
+    select {
+      padding: 6px 8px;
+      outline: none;
+      font-size: 1.4rem;
+
+      border: solid 1px var(--primary-color);
+      border-radius: 4px;
+
+      color: var(--label-color);
+      background: transparent;
+    }
+
+    select option {
+      background-color: var(--header-bg-color);
+      opacity: 0.95;
+      padding: 4px 0;
+    }
+
+    select:focus > option:checked {
+      background-color: var(--primary-color);
+      color: var(--light-grey);
+    }
+  }
+}
+
+.sort-btn {
+  flex-wrap: wrap;
+
+  &-item {
+    margin: 2px 4px;
+    background: transparent;
+    border: solid 1px var(--primary-color);
+    color: var(--text-color);
+
+    padding: 1rem 1.4rem;
+    border-radius: 4px;
+    font-size: 1.4rem;
+
+    transition: all 0.35s;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      color: var(--secondary-color);
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+// ----------- sort section -------------
+
+.sort-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.4rem;
+  margin: 2.4rem 0;
+}
+
+.sort-box-item {
+  border: solid 1px var(--label-color);
+  border-radius: 8px;
+  padding: 1.6rem;
+}
+
+.sort-name {
+  font-size: 1.8rem;
+  color: var(--label-color);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-transform: capitalize;
+}
+
+.sort-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+
+  .label {
+    font-size: 1.6rem;
+    color: var(--priamry-color);
+    padding-right: 1.2rem;
+    font-weight: bold;
+  }
+
+  .content {
+    font-size: 1.6rem;
+    color: var(--text-color);
+  }
+}
+
+.sorting {
+  border: solid 2px var(--title-color);
+
+  .sort-name {
+    color: var(--title-color);
+  }
+}
+
+.sorted {
+  border: solid 2px var(--primary-color);
+
+  .sort-name {
+    color: var(--primary-color);
+  }
+}
+
+// ----------- responsive -------------
+@media only screen and (max-width: 767px) {
+  .sort-box {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .sort-box {
+    grid-template-columns: 1fr;
+  }
+}

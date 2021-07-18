@@ -1,15 +1,5 @@
 /// <reference path="D:\tips\typings\jquery\globals\jquery\index.d.ts" />
 
-// @fn: helper
-// render option select
-function renderOptionSelect(optionList = []) {
-	let result = '';
-	optionList.forEach((option) => {
-		result += `<option value="${option.value}">${option.title}</option>`;
-	});
-	return result;
-}
-
 // render visualize array
 function renderArray(arr = []) {
 	let xml = '';
@@ -25,33 +15,6 @@ function renderArray(arr = []) {
 
 	return xml;
 }
-
-// render physical array
-const generateRandomData = (length = 10, type = 0, max = 1000) => {
-	let arr = [];
-	for (let i = 0; i < length; ++i) arr.push(Math.round(Math.random() * max));
-	switch (type) {
-		case 1:
-			arr.sort((a, b) => a - b);
-			// swap 2 last postion => generate ~sorted list
-			if (length > 2) {
-				[arr[length - 1], arr[length - 2]] = [arr[length - 2], arr[length - 1]];
-				[arr[length - 2], arr[length - 3]] = [arr[length - 3], arr[length - 2]];
-			}
-			break;
-		case 2:
-			arr.sort((a, b) => b - a);
-			if (length > 2) {
-				[arr[length - 1], arr[length - 2]] = [arr[length - 2], arr[length - 1]];
-				[arr[length - 2], arr[length - 3]] = [arr[length - 3], arr[length - 2]];
-			}
-
-			break;
-		default:
-			break;
-	}
-	return arr;
-};
 
 // render sort notes
 const renderSortNotes = (sortNotes = []) => {
@@ -196,27 +159,12 @@ const OPTION_ALGORITHMS = [
 	},
 ];
 
-const ARRAY_TYPES = [
-	{
-		title: 'Random',
-		value: 'random',
-	},
-	{
-		title: '~Sorted',
-		value: 'sorted',
-	},
-	{
-		title: '~Reverse Sorted',
-		value: 'reverse',
-	},
-];
-
 // initial
 let size = 1,
 	delay = 0,
 	typeAlg = 'random',
 	algorithm = OPTION_ALGORITHMS[0].value,
-	initArr = generateRandomData(size, delay, 300),
+	initArr = generateRandomData(size, 0, 300),
 	isSorting = false,
 	descAlg = getDescAlg(algorithm);
 

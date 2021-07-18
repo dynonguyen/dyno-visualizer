@@ -72,9 +72,30 @@
 
   <!-- content -->
   <div class="container">
-    <div class="m-t-9 p-lr-8">
+    <div class="wrapper">
       <h1 class="header-title">So sánh thời gian chạy các thuật toán sắp xếp</h1>
+
+      <section class="control-section flex-center--ver flex-wrap">
+        <div class="sort-input-item">
+          <label for="size">Kích thước</label>
+          <input id="size" type="number" min="1" max="1000" value="1" name="size" />
+        </div>
+
+        <div class="sort-input-item">
+          <label for="type">Loại mảng</label>
+          <select id="type" name="type"></select>
+        </div>
+
+        <button id="sortBtn" class="sort-btn-item">Bắt đầu</button>
+
+        <button class="sort-btn-item">Kết thúc</button>
+      </section>
+
+      <section class="sort-section">
+        <div id="sortBoxes" class="sort-box"></div>
+      </section>
     </div>
+  </div>
   </div>
 
   <!-- mobile menu -->
@@ -116,7 +137,22 @@
   </div>
 
   <!-- scripts -->
+  <script>
+    let isSorting = false;
+  </script>
   <script src="./vendors/jquery/jquery.min.js"></script>
   <script src="./scripts/main.js"> </script>
   <script src="./scripts/menu.js"></script>
+  <script src="./scripts/contants.js"></script>
+  <script src="./scripts/helper.js"></script>
+  <script src="./scripts/sort-realtime/bubble-sort.js"></script>
+  <script src="./scripts/sort-realtime/selection-sort.js"></script>
+  <script src="./scripts/sort-realtime/insertion-sort.js"></script>
+  <script src="./scripts/sort-realtime/quick-sort.js"></script>
+  <script src="./scripts/sort-realtime/merge-sort.js"></script>
+  <script src="./scripts/sort-realtime/heap-sort.js"></script>
+  <script src="./scripts/sort-realtime/radix-sort.js"></script>
+  <script src="./scripts/sort-realtime/stupid-sort.js"></script>
+  <script src="./scripts/sort-realtime/odd-even-sort.js"></script>
+  <script src="./scripts/sort-realtime/index.js"></script>
 </body>
